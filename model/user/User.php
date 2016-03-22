@@ -9,7 +9,6 @@ class User
 	private $_hashPwd;	//hash du mot de passe
 	private $_firstname;
 	private $_lastname;
-
 	private $_keys;		//Map<String,String> : Liste de clés pour les cookies (maintien de la connexion...)
 
 	/* Constructeur */
@@ -43,18 +42,7 @@ class User
 		return $this->_lastname;
 	}
 
-	public function getKey($name)
-	{
-		return $this->_keys['name'];
-	}
-
-	public function getKeys()
-	{
-		return $this->keys;
-	}
-
 	/* Setters */
-
 	public function setEmail($email)
 	{
 		$this->_email = $email;
@@ -65,7 +53,7 @@ class User
 		$this->_hashPwd = $hashPwd;
 	}
 
-	public function setFirstname($firstname)
+	public function setFirstName($firstName)
 	{
 		$this->_firstname = $firstname;
 	}
@@ -75,13 +63,7 @@ class User
 		$this->_lastname = $lastname;
 	}
 
-	public function setKey($name,$value)
-	{
-		$this->_keys['name'] = $value;
-	}
-
 	/* Hydratation */
-
 	public function hydrate(array $data)
 	{
 		foreach ($data as $key=>$value)
@@ -95,4 +77,3 @@ class User
 		}
 	}
 }
-	

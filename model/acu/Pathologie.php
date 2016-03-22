@@ -2,14 +2,13 @@
 
 /* Classe de représentation d'une pathologie
    Auteur : Robin */
-
 class Pathologie
 {
 	private $_meridien;		// acu.Meridien
 	private $_type;			// String
 	private $_description;		// String
 	private $_symptomes;		// List<acu.Symptome> : liste des symptômes associés à la pathologie
-
+	
 	/* Constructeur */		
 	public function __construct(array $data = NULL)
 	{
@@ -20,7 +19,6 @@ class Pathologie
 	}
 
 	/* Getters */
-
 	public function getMeridien()
 	{
 		return $this->_meridien;
