@@ -1,0 +1,137 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+header {
+  height: 64px;
+  background-color: #009688;
+}
+
+body {
+  background-color: #EBEBEB;
+  font-family: 'Roboto', sans-serif;
+}
+
+footer {
+  color: white;
+}
+
+#img_logo_site {
+  height: 64px;
+  float: left;
+}
+
+#header_navigation_items {
+  list-style-type: none;
+}
+
+#header_navigation_items li a {
+  float: left;
+  line-height: 64px;
+  color: white;
+  font-size: large;
+  text-decoration: none;
+  padding: 0px 10px 0px 10px;
+}
+
+#header_navigation_items li a:hover {
+  color: #B6B6B6;
+}
+
+#header_profile {
+  float: right;
+  padding: 0 16px 0 16px;
+  height: 64px;
+}
+
+#header_profile:hover {
+  background-color: #00776A;
+}
+
+#header_profile_avatar {
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  border-radius: 50% 50% 50% 50%;
+}
+
+#header_profile_username {
+  display: inline-block;
+  color: white;
+  padding: 0 16px 0 16px;
+  font-size: large;
+  line-height: 64px;
+}
+
+#main_content_top {
+  height: 40vh;
+  background-image: url(../img/banner_full.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#main_content_tiles {
+  position: relative;
+  top: -20vh;
+  margin: 0px auto 0px auto;
+  width: 60vw;
+}
+
+#footer_top {
+  background-color: #333;
+  height: 55px;
+}
+
+#footer_content {
+  background-color: #222;
+  text-align: center;
+  min-height: 305px;
+}
+
+.acu_tile {
+  padding: 16px;
+  background-color: white;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 2px 2px 2px 2px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+  overflow: hidden;
+
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* SEARCH VIEW STYLE */
+.acu_search_view {
+    display: flex;
+    border: solid 1px lightgray;
+}
+
+.acu_search_input {
+    order: 2;
+    border-style: none;
+    flex: 1 1 auto;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.acu_search_btn {
+    cursor: pointer;
+    height: 50px;
+    max-width: 50px;
+    width: 50px;
+    order: 3;
+    background-color: white;
+    border-style: none;
+}
+
+.acu_search_img:before {
+    color: rgb(204, 204, 204);
+    font-size: 21px;
+    content: '🔍';
+}
+/* ENDOF SEARCH VIEW STYLE */

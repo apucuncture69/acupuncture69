@@ -1,0 +1,40 @@
+<?xml version='1.0' standalone='yes'?>
+<routing>
+
+  <route>
+    <path>/</path>
+    <controller>Home</controller>
+    <action>home</action>
+  </route>
+
+  <route>
+    <path>/home</path>
+    <controller>Home</controller>
+    <action>home</action>
+  </route>
+
+  <route>
+    <path>/pathologies</path>
+    <controller>Home</controller>
+    <action>pathologies</action>
+  </route>
+
+  <route>
+    <path>/infos</path>
+    <controller>Home</controller>
+    <action>infos</action>
+  </route>
+
+  <route>
+    <path>/profile</path>
+    <controller>Home</controller>
+    <action>profile</action>
+  </route>
+
+  <route>
+    <path>/login</path>
+    <controller>Home</controller>
+    <action>login</action>
+  </route>
+
+</routing>

@@ -1,0 +1,18 @@
+#main_content_top {
+  /*Override this id to remove top banner*/
+  background-image: none;
+}
+
+#acu_404_text {
+  color: #009688;
+  font-weight: bolder;
+}
+
+#acu_404_infos {
+  font-size: 100px;
+  text-align: center;
+}
+
+#acu_404_content {
+  height: 50vh;
+}
