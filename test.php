@@ -1,6 +1,7 @@
 <?php
 
-require_once('manager/UsersManager.php');
+//Récupération d'une liste de pathologies
+
 require_once('manager/PathologiesManager.php');
 
 $dsn = 'mysql:dbname=acu;host=127.0.0.1';
@@ -37,8 +38,16 @@ foreach ($pathoList as $patho)
 
 	foreach ($patho->getSymptomes() as $sympt)
 	{
-		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Symptôme n°'.$i.'<br>';
+		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Symptôme n°'.$i.': '.$sympt->getDescription().'<br>';
+		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aggr : '.($sympt->isAggr()?'Oui':'Non').'<br><br>';
 		
+		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mots-clés associés : <br>';
+		
+		foreach ($sympt->getMotsCles as $motCle)
+		{
+			echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mot-clé n°'.$k.': '.$motCle.'<br><br>';
+			$k++;
+		}
 		
 		$i++;		
 	}
