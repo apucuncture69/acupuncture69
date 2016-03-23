@@ -34,11 +34,5 @@ class Home
 		$this->smarty->assign("module_name", "acu_infos");
 		$this->smarty->display("view/acu_main.tpl");
   }
-
-	public function profile()
-  {
-		$this->smarty->assign("module_name", "acu_profile");
-		$this->smarty->display("view/acu_main.tpl");
-  }
 }
 ?>

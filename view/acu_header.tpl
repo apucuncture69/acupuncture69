@@ -10,7 +10,7 @@
   </ul>
 
   <div id="header_profile">
-    <a href="profile">
+    <a href="#">
       <img id="header_profile_avatar" src="http://www.bakefly.com/uploads/section/avatar.jpg" alt='Image de profil' />
       <p id="header_profile_username">Michael Breton</p>
     </a>

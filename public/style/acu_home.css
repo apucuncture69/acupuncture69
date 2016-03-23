@@ -3,3 +3,12 @@
   height: 100px;
   float: left;
 }
+
+#acu_home_infos_content {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#acu_home_infos_content p {
+  margin-bottom: 20px;
+}

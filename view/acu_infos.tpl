@@ -1,24 +1,24 @@
 <!-- Equipe tile -->
 <div class="acu_tile" id="acu_infos_team">
-  <h2>Une équipe soudée</h2>
+  <h2>Notre équipe</h2>
   <div class="acu_infos_profile">
-    <img src="public/img/profile_robcol.jpg" alt="Robin Collinet"/>
-    <p class="acu_infos_userinfos">Robin Collinet</p>
+    <div><img src="public/img/profile_robcol.jpg" alt="Robin Collinet"/></div>
+    <div><p class="acu_infos_userinfos">Robin Collinet</p></div>
   </div>
 
   <div class="acu_infos_profile">
-    <img src="public/img/profile_nicbra.jpg" alt="Nicolas Brat"/>
-    <p class="acu_infos_userinfos">Nicolas Brat</p>
+    <div><img src="public/img/profile_nicbra.jpg" alt="Nicolas Brat"/></div>
+    <div><p class="acu_infos_userinfos">Nicolas Brat</p></div>
   </div>
 
   <div class="acu_infos_profile">
-    <img src="public/img/profile_flodec.jpg" alt="Florent Decoster"/>
-    <p class="acu_infos_userinfos">Florent Decoster</p>
+    <div><img src="public/img/profile_flodec.jpg" alt="Florent Decoster"/></div>
+    <div><p class="acu_infos_userinfos">Florent Decoster</p></div>
   </div>
 
   <div class="acu_infos_profile">
-    <img src="public/img/profile_micbre.jpg" alt="Michael Breton"/>
-    <p class="acu_infos_userinfos">Michael Breton</p>
+    <div><img src="public/img/profile_micbre.jpg" alt="Michael Breton"/></div>
+    <div><p class="acu_infos_userinfos">Michael Breton</p></div>
   </div>
 </div>
 
