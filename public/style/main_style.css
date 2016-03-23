@@ -14,7 +14,14 @@ body {
 }
 
 footer {
+  background-color: #333;
+  height: 55px;
+}
+
+footer {
   color: white;
+  text-align: center;
+  line-height: 55px;
 }
 
 #img_logo_site {
@@ -76,11 +83,6 @@ footer {
   top: -20vh;
   margin: 0px auto 0px auto;
   width: 60vw;
-}
-
-#footer_top {
-  background-color: #333;
-  height: 55px;
 }
 
 #footer_content {

@@ -1,0 +1,15 @@
+.acu_infos_profile img {
+  width: 100%;
+}
+
+#acu_infos_team div {
+  width: 250px;
+  float: left;
+  padding: 10px;
+}
+
+.acu_infos_userinfos {
+  background-color: white;
+  line-height: 50px;
+  padding-left: 10px;
+}

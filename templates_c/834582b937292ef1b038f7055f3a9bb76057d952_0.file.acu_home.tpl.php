@@ -1,3 +1,26 @@
+<?php
+/* Smarty version 3.1.28, created on 2016-03-23 08:10:27
+  from "C:\Program Files\wamp\www\acupuncture\view\acu_home.tpl" */
+
+if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28',
+  'unifunc' => 'content_56f24163692394_01841600',
+  'file_dependency' => 
+  array (
+    '834582b937292ef1b038f7055f3a9bb76057d952' => 
+    array (
+      0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_home.tpl',
+      1 => 1458662983,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_56f24163692394_01841600 ($_smarty_tpl) {
+?>
 <!-- Definition tile -->
 <div class="acu_tile">
   <h2>Qu'est ce que l'acupuncture ?</h2>
@@ -33,3 +56,5 @@
   <p>Michael Breton</p>
   <p>michael.breton@cpe.fr</p>
 </div>
+<?php }
+}

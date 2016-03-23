@@ -1,3 +1,26 @@
+<?php
+/* Smarty version 3.1.28, created on 2016-03-23 08:50:12
+  from "C:\Program Files\wamp\www\acupuncture\view\acu_pathologies.tpl" */
+
+if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28',
+  'unifunc' => 'content_56f24ab42544b1_55320981',
+  'file_dependency' => 
+  array (
+    'cc029412821b97c1d49596ced368a6ce95ee893f' => 
+    array (
+      0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_pathologies.tpl',
+      1 => 1458719408,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_56f24ab42544b1_55320981 ($_smarty_tpl) {
+?>
 <!-- Pathologies tile -->
 <div class="acu_tile">
   <h2>Chercher une pathologie</h2>
@@ -48,3 +71,5 @@
     </table>
   </div>
 </div>
+<?php }
+}

@@ -18,11 +18,7 @@
   </div>
 
   <footer>
-    <div id="footer_top">
-    </div>
-    <div id="footer_content">
-      <p>© 2016 Brat Breton Collinet Decoster - All Rights Reserved</p>
-    </div>
+    <p>© 2016 Brat Breton Collinet Decoster - All Rights Reserved</p>
   </footer>
 </body>
 
