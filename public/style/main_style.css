@@ -14,14 +14,11 @@ body {
 }
 
 footer {
-  background-color: #333;
-  height: 55px;
-}
-
-footer {
   color: white;
   text-align: center;
   line-height: 55px;
+  background-color: #333;
+  height: 55px;
 }
 
 #img_logo_site {
