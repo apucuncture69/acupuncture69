@@ -49,7 +49,7 @@ abbr {
 
 #header_profile {
   float: right;
-  padding: 0 16px 0 16px;
+  margin-right: 16px;
   height: 64px;
 }
 
@@ -61,9 +61,14 @@ abbr {
   background-color: #00776A;
 }
 
+#header_profile:hover #header_menu_user {
+  display: block;
+}
+
 #header_profile_avatar {
   height: 40px;
   width: 40px;
+  margin-left: 16px;
   vertical-align: middle;
   border-radius: 50% 50% 50% 50%;
 }
@@ -74,6 +79,27 @@ abbr {
   padding: 0 16px 0 16px;
   font-size: large;
   line-height: 64px;
+}
+
+#header_menu_user {
+  background-color: #00776A;
+  display: none;
+}
+
+#header_menu_user li {
+  padding: 5px 15px;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  list-style-type: none;
+  cursor: pointer;
+}
+
+#header_menu_user li:last-child {
+  background-color: #373737;
+}
+
+#header_menu_user li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 #main_content_top {
