@@ -13,8 +13,8 @@ class Error
 
 	public function error_404()
   	{
-	  	$smarty->assign("module_name", "acu_404");
-		$smarty->display("view/acu_main.tpl");
+	  	$this->$smarty->assign("module_name", "acu_404");
+		$this->$smarty->display("view/acu_main.tpl");
   	}
 }
 ?>
