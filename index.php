@@ -6,6 +6,10 @@
 	define ('DIR_CTRL', __DIR__.'/controller/');
 	define ('DIR_MODEL', __DIR__.'/model/');
 	define ('DIR_VIEW',  __DIR__.'/view/');
+	define ('DIR_SERV', __DIR__.'/service/');
+
+	define ('ROUTING', __DIR__.'/config/routing.xml');
+	define ('ROUTING_WS', __DIR__.'/config/routing_ws.xml');
 
 	/* Functions */
 	function getCurrentUri()
@@ -73,9 +77,23 @@
 	}
 
 	/* Traitements */
+
+
+	$conf_file = null;
+	$action_directory = null;
+	if($_GET['mod'] == 'site'){
+		$conf_file = ROUTING;
+		$action_directory = DIR_CTRL;
+	} else if ($_GET['mod'] == 'api') {
+		$conf_file = ROUTING_WS;
+		$action_directory = DIR_SERV;
+	}
+
+
 	$uri = getCurrentUri();
 
-	$xml=simplexml_load_file('config/routing.xml');
+
+	$xml=simplexml_load_file($conf_file);
 	foreach($xml->children() as $route) {
 	    $pattern = patternEncode($route);
 	    if(preg_match($pattern, $uri)){
@@ -91,11 +109,15 @@
 		$action = trim($target->action);
 		$param = getParametersRoute($target,$uri);
 
-		include DIR_CTRL.$controller.'.php';
+		include $action_directory.$controller.'.php';
 		$instance = new $controller();
-		$instance->$action($param);
+		echo $instance->$action($param);
 	} else {
-		include '404.php';
+		if($_GET['mod'] == 'site'){
+			include '404.php';
+		} else if ($_GET['mod'] == 'api') {
+			echo 'error';
+		}
 	}
 
 	/*
