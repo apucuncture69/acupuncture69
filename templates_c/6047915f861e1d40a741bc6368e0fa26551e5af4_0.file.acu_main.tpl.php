@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-22 16:42:37
+/* Smarty version 3.1.28, created on 2016-03-24 17:34:43
   from "C:\Program Files\wamp\www\acupuncture\view\acu_main.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f167edc1a540_52965070',
+  'unifunc' => 'content_56f41723adc4e7_58208921',
   'file_dependency' => 
   array (
     '6047915f861e1d40a741bc6368e0fa26551e5af4' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_main.tpl',
-      1 => 1458660283,
+      1 => 1458837279,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:view/".((string)$_smarty_tpl->tpl_vars[\'module_name\']->value).".tpl' => 1,
   ),
 ),false)) {
-function content_56f167edc1a540_52965070 ($_smarty_tpl) {
+function content_56f41723adc4e7_58208921 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,6 +32,14 @@ function content_56f167edc1a540_52965070 ($_smarty_tpl) {
   <link rel="stylesheet" type="text/css" href="public/style/<?php echo $_smarty_tpl->tpl_vars['module_name']->value;?>
 .css" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+
+  <?php if ($_smarty_tpl->tpl_vars['user']->value['email'] == '' && $_smarty_tpl->tpl_vars['module_name']->value != 'acu_login') {?>
+    <?php echo '<script'; ?>
+ type="text/javascript">
+      window.location.href = "login";
+    <?php echo '</script'; ?>
+>
+  <?php }?>
 </head>
 
 <body>
@@ -52,5 +60,6 @@ function content_56f167edc1a540_52965070 ($_smarty_tpl) {
   </footer>
 </body>
 
-</html><?php }
+</html>
+<?php }
 }

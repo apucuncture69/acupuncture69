@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-24 15:31:47
+/* Smarty version 3.1.28, created on 2016-03-24 17:06:44
   from "C:\Program Files\wamp\www\acupuncture\view\acu_header.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f3fa5368e3a5_51097395',
+  'unifunc' => 'content_56f41094817558_28301473',
   'file_dependency' => 
   array (
     'cb1fc5aafb25d1920de3f097e3b38b140ebf8578' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_header.tpl',
-      1 => 1458829903,
+      1 => 1458835311,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f3fa5368e3a5_51097395 ($_smarty_tpl) {
+function content_56f41094817558_28301473 ($_smarty_tpl) {
 ?>
 <header>
   <a href="./">
@@ -46,7 +46,7 @@ function content_56f3fa5368e3a5_51097395 ($_smarty_tpl) {
         <li>Déconnexion</li>
       </ul>
     <?php } else { ?>
-      <a href="#">
+      <a href="login">
         <p id="header_profile_username">Se connecter</p>
       </a>
     <?php }?>

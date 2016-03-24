@@ -42,6 +42,7 @@ class Home
 	public function initSessionVariables() {
 
 		$email = $display_name = '';
+		
 		if(isset($_SESSION['user_email']))
 			$email = $_SESSION['user_email'];
 

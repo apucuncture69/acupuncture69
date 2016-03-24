@@ -6,6 +6,12 @@
   <link rel="stylesheet" type="text/css" href="public/style/main_style.css" />
   <link rel="stylesheet" type="text/css" href="public/style/{$module_name}.css" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+
+  {if $user.email eq '' && $module_name ne 'acu_login'}
+    <script type="text/javascript">
+      window.location.href = "login";
+    </script>
+  {/if}
 </head>
 
 <body>

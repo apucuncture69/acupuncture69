@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-24 13:46:37
+/* Smarty version 3.1.28, created on 2016-03-24 17:27:23
   from "C:\Program Files\wamp\www\acupuncture\view\acu_home.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f3e1ad6ab805_17959150',
+  'unifunc' => 'content_56f4156b6332b6_40293003',
   'file_dependency' => 
   array (
     '834582b937292ef1b038f7055f3a9bb76057d952' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f3e1ad6ab805_17959150 ($_smarty_tpl) {
+function content_56f4156b6332b6_40293003 ($_smarty_tpl) {
 ?>
 <!-- Definition tile -->
 <div class="acu_tile">

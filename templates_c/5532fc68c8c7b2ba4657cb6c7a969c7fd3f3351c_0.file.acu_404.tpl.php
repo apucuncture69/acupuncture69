@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-22 16:17:22
+/* Smarty version 3.1.28, created on 2016-03-24 17:06:44
   from "C:\Program Files\wamp\www\acupuncture\view\acu_404.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f162028d9c34_75446377',
+  'unifunc' => 'content_56f41094e1e618_38170459',
   'file_dependency' => 
   array (
     '5532fc68c8c7b2ba4657cb6c7a969c7fd3f3351c' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f162028d9c34_75446377 ($_smarty_tpl) {
+function content_56f41094e1e618_38170459 ($_smarty_tpl) {
 ?>
 <div id="acu_404_content">
   <div id="acu_404_infos">

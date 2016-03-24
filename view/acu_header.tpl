@@ -21,7 +21,7 @@
         <li>Déconnexion</li>
       </ul>
     {else}
-      <a href="#">
+      <a href="login">
         <p id="header_profile_username">Se connecter</p>
       </a>
     {/if}

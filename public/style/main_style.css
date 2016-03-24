@@ -102,6 +102,10 @@ abbr {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+#main_content {
+  min-height: 100vh;
+}
+
 #main_content_top {
   height: 40vh;
   background-image: url(../img/banner_full.png);
