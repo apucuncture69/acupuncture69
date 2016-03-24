@@ -114,7 +114,8 @@
 		echo $instance->$action($param);
 	} else {
 		if($_GET['mod'] == 'site'){
-			include '404.php';
+			//include '404.php';
+			header('Location: /404');
 		} else if ($_GET['mod'] == 'api') {
 			echo 'error';
 		}
