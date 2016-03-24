@@ -28,4 +28,7 @@
   </footer>
 </body>
 
+<script src="http://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
+<script src="public/js/{$module_name}.js" type="text/javascript"></script>
+
 </html>
