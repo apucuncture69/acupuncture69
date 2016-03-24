@@ -37,6 +37,7 @@
 	function getParametersRoute($route, $uri){
 		$path = trim($route->path);
 		preg_match_all('/\{\\w+\}/', $path, $matches);
+		$tab = null;
 		foreach ($matches[0] as $param) {
 			$param_regex = '/'.$param.'/';
 			preg_match($param_regex, $path, $result, PREG_OFFSET_CAPTURE);
@@ -115,7 +116,7 @@
 	} else {
 		if($_GET['mod'] == 'site'){
 			//include '404.php';
-			header('Location: /404');
+			header('Location: 404');
 		} else if ($_GET['mod'] == 'api') {
 			echo 'error';
 		}
