@@ -2,9 +2,9 @@
 <routing>
 
   <route>
-    <path>/api</path>
-    <controller>Home</controller>
-    <action>home</action>
+    <path>/api/user</path>
+    <controller>User</controller>
+    <action>index</action>
   </route>
 
 </routing>
