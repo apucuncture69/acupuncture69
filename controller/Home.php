@@ -6,38 +6,37 @@ class Home
 {
 	private $smarty;
 
-	public function __construct()
-	{
+	public function __construct() {
 		$this->smarty = new Smarty();
 	}
 
-	public function home()
-  {
+	public function home() {
 		$this->initSessionVariables();
 		$this->smarty->assign("module_name", "acu_home");
-	  $this->smarty->display("view/acu_main.tpl");
-  }
+		$this->smarty->display("view/acu_main.tpl");
+	}
 
-  public function login()
-  {
+	public function login() {
 		$this->initSessionVariables();
 		$this->smarty->assign("module_name", "acu_login");
 		$this->smarty->display("view/acu_main.tpl");
-  }
+	}
 
-	public function pathologies()
-  {
-		$this->initSessionVariables();
-		$this->smarty->assign("module_name", "acu_pathologies");
-		$this->smarty->display("view/acu_main.tpl");
-  }
+	public function pathologies() {
+		if($this->isConnected()){
+			$this->initSessionVariables();
+			$this->smarty->assign("module_name", "acu_pathologies");
+			$this->smarty->display("view/acu_main.tpl");
+		} else {
+			header('Location: login');
+		}
+	}
 
-	public function infos()
-  {
+	public function infos() {
 		$this->initSessionVariables();
 		$this->smarty->assign("module_name", "acu_infos");
 		$this->smarty->display("view/acu_main.tpl");
-  }
+	}
 
 	public function initSessionVariables() {
 
@@ -51,6 +50,10 @@ class Home
 
 		$userData = array('email' => $email, 'display_name' => $display_name);
 		$this->smarty->assign('user', $userData);
+	}
+	
+	private function isConnected(){
+		return isset($_SESSION['acu_tck_login']);
 	}
 }
 ?>
