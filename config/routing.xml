@@ -37,4 +37,10 @@
     <action>login</action>
   </route>
 
+  <route>
+    <path>/404</path>
+    <controller>Error</controller>
+    <action>error_404</action>
+  </route>
+
 </routing>
