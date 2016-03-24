@@ -10,14 +10,21 @@
   </ul>
 
   <div id="header_profile">
-    <a href="#">
-      <img id="header_profile_avatar" src="http://www.bakefly.com/uploads/section/avatar.jpg" alt='Image de profil' />
-      <p id="header_profile_username">Michael Breton</p>
-    </a>
-    <ul id="header_menu_user">
-      <li>Menu 1</li>
-      <li>Menu 2</li>
-      <li>Déconnexion</li>
-    </ul>
+    {if $user.email ne ''}
+      <a href="#">
+        <img id="header_profile_avatar" src="http://2.gravatar.com/avatar/{$user.email|md5}" alt='Image de profil' />
+        <p id="header_profile_username">{$user.display_name}</p>
+      </a>
+      <ul id="header_menu_user">
+        <li>Menu 1</li>
+        <li>Menu 2</li>
+        <li>Déconnexion</li>
+      </ul>
+    {else}
+      <a href="#">
+        <p id="header_profile_username">Se connecter</p>
+      </a>
+    {/if}
   </div>
+
 </header>

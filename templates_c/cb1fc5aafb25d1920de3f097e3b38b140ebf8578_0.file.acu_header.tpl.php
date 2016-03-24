@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-24 14:22:59
+/* Smarty version 3.1.28, created on 2016-03-24 15:31:47
   from "C:\Program Files\wamp\www\acupuncture\view\acu_header.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f3ea33c1ff67_76869172',
+  'unifunc' => 'content_56f3fa5368e3a5_51097395',
   'file_dependency' => 
   array (
     'cb1fc5aafb25d1920de3f097e3b38b140ebf8578' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_header.tpl',
-      1 => 1458825001,
+      1 => 1458829903,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f3ea33c1ff67_76869172 ($_smarty_tpl) {
+function content_56f3fa5368e3a5_51097395 ($_smarty_tpl) {
 ?>
 <header>
   <a href="./">
@@ -33,16 +33,25 @@ function content_56f3ea33c1ff67_76869172 ($_smarty_tpl) {
   </ul>
 
   <div id="header_profile">
-    <a href="#">
-      <img id="header_profile_avatar" src="http://www.bakefly.com/uploads/section/avatar.jpg" alt='Image de profil' />
-      <p id="header_profile_username">Michael Breton</p>
-    </a>
-    <ul id="header_menu_user">
-      <li>Menu 1</li>
-      <li>Menu 2</li>
-      <li>Déconnexion</li>
-    </ul>
+    <?php if ($_smarty_tpl->tpl_vars['user']->value['email'] != '') {?>
+      <a href="#">
+        <img id="header_profile_avatar" src="http://2.gravatar.com/avatar/<?php echo md5($_smarty_tpl->tpl_vars['user']->value['email']);?>
+" alt='Image de profil' />
+        <p id="header_profile_username"><?php echo $_smarty_tpl->tpl_vars['user']->value['display_name'];?>
+</p>
+      </a>
+      <ul id="header_menu_user">
+        <li>Menu 1</li>
+        <li>Menu 2</li>
+        <li>Déconnexion</li>
+      </ul>
+    <?php } else { ?>
+      <a href="#">
+        <p id="header_profile_username">Se connecter</p>
+      </a>
+    <?php }?>
   </div>
+
 </header>
 <?php }
 }

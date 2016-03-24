@@ -21,28 +21,28 @@
       </thead>
       <tbody>
         <tr>
-          <td data-title="Type">Crampe penienne</td>
-          <td data-title="Meridien">Penis</td>
+          <td data-title="Type">Crampe</td>
+          <td data-title="Meridien">Bras</td>
           <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles peniens</td>
+          <td data-title="Symptomes">Contraction subite des muscles</td>
         </tr>
         <tr>
-          <td data-title="Type">Crampe penienne</td>
-          <td data-title="Meridien">Penis</td>
+          <td data-title="Type">Crampe</td>
+          <td data-title="Meridien">Bras</td>
           <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles peniens</td>
+          <td data-title="Symptomes">Contraction subite des muscles</td>
         </tr>
         <tr>
-          <td data-title="Type">Crampe penienne</td>
-          <td data-title="Meridien">Penis</td>
+          <td data-title="Type">Crampe</td>
+          <td data-title="Meridien">Bras</td>
           <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles peniens</td>
+          <td data-title="Symptomes">Contraction subite des muscles</td>
         </tr>
         <tr>
-          <td data-title="Type">Crampe penienne</td>
-          <td data-title="Meridien">Penis</td>
+          <td data-title="Type">Crampe</td>
+          <td data-title="Meridien">Bras</td>
           <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles peniens</td>
+          <td data-title="Symptomes">Contraction subite des muscles</td>
         </tr>
       </tbody>
     </table>
