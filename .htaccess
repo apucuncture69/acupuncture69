@@ -1,4 +1,5 @@
 Options +FollowSymlinks
 RewriteEngine on
 
-RewriteRule ^(?!public)(.*) index.php [L,QSA]
+RewriteRule ^(?!(public|api))(.*) index.php?mod=site [L,QSA]
+RewriteRule ^api index.php?mod=api [L,QSA]
