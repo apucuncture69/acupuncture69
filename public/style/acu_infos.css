@@ -16,3 +16,7 @@
   color: white;
   top: -50px;
 }
+
+.acu_infos_userinfos:hover {
+  background-color: rgba(0,150,136,1);
+}

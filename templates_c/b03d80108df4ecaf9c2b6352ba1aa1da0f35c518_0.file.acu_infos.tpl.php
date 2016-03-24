@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-22 17:43:27
+/* Smarty version 3.1.28, created on 2016-03-24 13:46:43
   from "C:\Program Files\wamp\www\acupuncture\view\acu_infos.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f1762f4529e5_08104061',
+  'unifunc' => 'content_56f3e1b3a9cb78_78418673',
   'file_dependency' => 
   array (
     'b03d80108df4ecaf9c2b6352ba1aa1da0f35c518' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_infos.tpl',
-      1 => 1458665005,
+      1 => 1458823535,
       2 => 'file',
     ),
   ),
@@ -19,29 +19,29 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f1762f4529e5_08104061 ($_smarty_tpl) {
+function content_56f3e1b3a9cb78_78418673 ($_smarty_tpl) {
 ?>
 <!-- Equipe tile -->
 <div class="acu_tile" id="acu_infos_team">
-  <h2>Une équipe soudée</h2>
+  <h2>Notre équipe</h2>
   <div class="acu_infos_profile">
-    <img src="public/img/profile_robcol.jpg" alt="Robin Collinet"/>
-    <p class="acu_infos_userinfos">Robin Collinet</p>
+    <div><img src="public/img/profile_robcol.jpg" alt="Robin Collinet"/></div>
+    <div><p class="acu_infos_userinfos">Robin Collinet</p></div>
   </div>
 
   <div class="acu_infos_profile">
-    <img src="public/img/profile_nicbra.jpg" alt="Nicolas Brat"/>
-    <p class="acu_infos_userinfos">Nicolas Brat</p>
+    <div><img src="public/img/profile_nicbra.jpg" alt="Nicolas Brat"/></div>
+    <div><p class="acu_infos_userinfos">Nicolas Brat</p></div>
   </div>
 
   <div class="acu_infos_profile">
-    <img src="public/img/profile_flodec.jpg" alt="Florent Decoster"/>
-    <p class="acu_infos_userinfos">Florent Decoster</p>
+    <div><img src="public/img/profile_flodec.jpg" alt="Florent Decoster"/></div>
+    <div><p class="acu_infos_userinfos">Florent Decoster</p></div>
   </div>
 
   <div class="acu_infos_profile">
-    <img src="public/img/profile_micbre.jpg" alt="Michael Breton"/>
-    <p class="acu_infos_userinfos">Michael Breton</p>
+    <div><img src="public/img/profile_micbre.jpg" alt="Michael Breton"/></div>
+    <div><p class="acu_infos_userinfos">Michael Breton</p></div>
   </div>
 </div>
 

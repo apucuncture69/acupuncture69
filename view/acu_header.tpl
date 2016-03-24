@@ -14,5 +14,10 @@
       <img id="header_profile_avatar" src="http://www.bakefly.com/uploads/section/avatar.jpg" alt='Image de profil' />
       <p id="header_profile_username">Michael Breton</p>
     </a>
+    <ul>
+      <li>Menu 1</li>
+      <li>Menu 2</li>
+      <li>Deconnexion</li>
+    </ul>
   </div>
 </header>
