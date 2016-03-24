@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		    success: function(result) {
 		        alert(result);
 		        if(result=='OK'){
-		        	document.location.href="home"
+		        	document.location.href="pathologies"
 		        }
 		    },
 		    error: function(result) {
