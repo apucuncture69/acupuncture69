@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	/* Constants */
 	define ('DEFAULT_MODULE', 'home');
 	define ('DEFAULT_FUNCTION', 'index');
