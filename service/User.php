@@ -14,7 +14,7 @@ class User
 	public function index()
 	{
 		$_SESSION['acu_tck_login'] = 'OK';
-		return 'OK';
+		return $_SESSION['acu_tck_login'];
 	}
 }
 ?>
