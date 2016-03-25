@@ -1,16 +1,16 @@
 <!-- Pathologies tile -->
-<div class="acu_tile">
-  <h2>Chercher une pathologie</h2>
+<article class="acu_tile" role="search">
+  <h2 id="acu_pathologie_title">Chercher une pathologie</h2>
 
-  <div id="acu_search_patho" class="acu_search_view">
-    <input type="search" placeholder="Pathologie..." class="acu_search_input" />
+  <div id="acu_search_patho" class="acu_search_view" aria-labelledby="acu_pathologie_title">
+    <input type="search" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table"/>
     <button class="acu_search_btn">
-      <span class="acu_search_img" />
+      <span class="acu_search_img"></span>
     </button>
   </div>
 
-  <div class="table-responsive-vertical">
-    <table id="acu_pathologie_table" class="table table-hover">
+  <div class="table-responsive-vertical" aria-labelledby="acu_pathologie_title">
+    <table id="acu_pathologie_table" class="table table-hover" role="region">
       <thead>
         <tr>
           <th>Type</th>
@@ -19,7 +19,7 @@
           <th>Symptomes</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
         <tr>
           <td data-title="Type">Crampe</td>
           <td data-title="Meridien">Bras</td>
@@ -47,4 +47,4 @@
       </tbody>
     </table>
   </div>
-</div>
+</article>

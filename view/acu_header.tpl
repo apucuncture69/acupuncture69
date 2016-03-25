@@ -1,4 +1,4 @@
-<header>
+<header role=”banner”>
   <a href="./">
     <img id="img_logo_site" src="public/img/ic_logo.png" alt="Acupuncture logo" />
   </a>
@@ -15,10 +15,10 @@
         <img id="header_profile_avatar" src="http://2.gravatar.com/avatar/{$user.email|md5}" alt='Image de profil' />
         <p id="header_profile_username">{$user.display_name}</p>
       </a>
-      <ul id="header_menu_user">
-        <li>Menu 1</li>
-        <li>Menu 2</li>
-        <li>Déconnexion</li>
+      <ul id="header_menu_user" role="menu">
+        <li role="menuitem">Menu 1</li>
+        <li role="menuitem">Menu 2</li>
+        <li role="menuitem">Déconnexion</li>
       </ul>
     {else}
       <a href="login">
