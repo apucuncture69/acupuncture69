@@ -4,6 +4,7 @@
 <head>
   <title>Acupuncture</title>
   <link rel="stylesheet" type="text/css" href="public/style/main_style.css" />
+  <link rel="stylesheet" type="text/css" href="public/style/main_style_small_device.css" media="screen and (max-width: 1280px)"/>
   <link rel="stylesheet" type="text/css" href="public/style/{$module_name}.css" />
   <meta charset="UTF-8">
 </head>
