@@ -1,5 +1,5 @@
 <article class="acu_tile">
-	<h2 id="acu_login_title">Connexion</h2>
+	<h1 id="acu_login_title">Connexion</h1>
 	<div id="login_form" aria-labelledby="acu_login_title">
 		<label class="elt_form" for="login_email">Email:</label>
 		<input class="elt_form" id="login_email" type="text" aria-required="true"/>

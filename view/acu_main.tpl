@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <title>Acupuncture</title>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <footer role=”contentinfo”>
+  <footer>
     <p>© 2016 Brat Breton Collinet Decoster - All Rights Reserved</p>
   </footer>
 
