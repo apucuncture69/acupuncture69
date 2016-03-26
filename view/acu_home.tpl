@@ -1,6 +1,6 @@
 <!-- Definition tile -->
 <article class="acu_tile">
-  <h2 id="acu_home_infos_title">Qu'est ce que l'acupuncture ?</h2>
+  <h1 id="acu_home_infos_title">Qu'est ce que l'acupuncture ?</h1>
   <div id="acu_home_infos_content" aria-labelledby="acu_home_infos_title">
     <p><strong>L'acupuncture</strong> est une discipline millénaire. Les premiers écrits y faisant référence datent du Ve avant Jésus-Christ. L'acupuncture est une technique ancestrale de la médecine chinoise.</p>
     <p>La médecine traditionnelle chinoise considère que la maladie est le résultat d'un <strong>blocage de l'énergie vitale</strong>. Cette énergie vitale, appelée le Qi (prononcer Tchi), circule dans tout notre organisme, le long de ce qu'on appelle les méridiens.</p>
@@ -13,10 +13,10 @@
 </article>
 
 <!-- Pathologies search tile -->
-<article class="acu_tile" role="search">
-  <h2 id="acu_home_search_title">Chercher une pathologie</h2>
+<article class="acu_tile">
+  <h1 id="acu_home_search_title">Chercher une pathologie</h1>
   <div class="acu_search_view" aria-labelledby="acu_home_search_title">
-    <input type="search" placeholder="Pathologie..." class="acu_search_input" />
+    <input type="search" placeholder="Pathologie..." class="acu_search_input" title="Chercher une pathologie"/>
     <button class="acu_search_btn">
       <span class="acu_search_img"></span>
     </button>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <title>Acupuncture</title>
   <link rel="stylesheet" type="text/css" href="public/style/main_style.css" />
+  <link rel="stylesheet" type="text/css" href="public/style/main_style_small_device.css" media="screen and (max-width: 1280px)"/>
   <link rel="stylesheet" type="text/css" href="public/style/{$module_name}.css" />
   <meta charset="UTF-8">
 </head>
@@ -17,7 +18,7 @@
     </div>
   </div>
 
-  <footer role=”contentinfo”>
+  <footer>
     <p>© 2016 Brat Breton Collinet Decoster - All Rights Reserved</p>
   </footer>
 

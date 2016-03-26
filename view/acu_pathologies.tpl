@@ -1,9 +1,9 @@
 <!-- Pathologies tile -->
-<article class="acu_tile" role="search">
-  <h2 id="acu_pathologie_title">Chercher une pathologie</h2>
+<article class="acu_tile">
+  <h1 id="acu_pathologie_title">Chercher une pathologie</h1>
 
   <div id="acu_search_patho" class="acu_search_view" aria-labelledby="acu_pathologie_title">
-    <input type="search" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table"/>
+    <input type="search" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table" title="Chercher une pathologie"/>
     <button class="acu_search_btn">
       <span class="acu_search_img"></span>
     </button>
