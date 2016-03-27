@@ -23,6 +23,9 @@
   </footer>
 
   <script src="http://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
+  <script src="public/js/sha256/scripts/qunit.js" type="text/javascript"></script>
+  <script src="public/js/sha256/scripts/sha256.jquery.debug.js" type="text/javascript"></script>
+  <script src="public/js/acu_main.js" type="text/javascript"></script>
   <script src="public/js/{$module_name}.js" type="text/javascript"></script>
 </body>
 
