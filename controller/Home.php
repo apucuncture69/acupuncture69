@@ -16,10 +16,19 @@ class Home
 		$this->smarty->display("view/acu_main.tpl");
 	}
 
-	public function login() {
-		$this->initSessionVariables();
-		$this->smarty->assign("module_name", "acu_login");
-		$this->smarty->display("view/acu_main.tpl");
+	public function login($param) {
+		if($this->isConnected()){
+			header('Location: home');
+		} else {
+			$this->initSessionVariables();
+			if(isset($param['redirect_page'])){
+				$this->smarty->assign('redirect_page', $param['redirect_page']);
+			} else {
+				$this->smarty->assign('redirect_page', 'home');
+			}
+			$this->smarty->assign("module_name", "acu_login");
+			$this->smarty->display("view/acu_main.tpl");
+		}
 	}
 
 	public function pathologies() {
@@ -28,7 +37,7 @@ class Home
 			$this->smarty->assign("module_name", "acu_pathologies");
 			$this->smarty->display("view/acu_main.tpl");
 		} else {
-			header('Location: login');
+			header('Location: login-pathologies');
 		}
 	}
 
@@ -40,15 +49,16 @@ class Home
 
 	public function initSessionVariables() {
 
-		$email = $display_name = '';
+		$email = $display_name = null;
+		$isConnected = false;
 		
-		if(isset($_SESSION['user_email']))
+		if($this->isConnected()){
+			$isConnected = true;
 			$email = $_SESSION['user_email'];
-
-		if(isset($_SESSION['user_display_name']))
 			$display_name = $_SESSION['user_display_name'];
+		}
 
-		$userData = array('email' => $email, 'display_name' => $display_name);
+		$userData = array('isConnected' => $isConnected, 'email' => $email, 'display_name' => $display_name);
 		$this->smarty->assign('user', $userData);
 	}
 	
