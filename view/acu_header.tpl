@@ -20,7 +20,7 @@
     <ul id="header_menu_user" role="menu">
       <li role="menuitem">Menu 1</li>
       <li role="menuitem">Menu 2</li>
-      <li role="menuitem">Déconnexion</li>
+      <li role="menuitem" id="header_deco">Déconnexion</li>
     </ul>
     {else}
     <a href="login">
