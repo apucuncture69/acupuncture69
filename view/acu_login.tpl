@@ -5,6 +5,7 @@
 		<input class="elt_form" id="login_email" type="text" aria-required="true"/>
 		<label class="elt_form" for="login_password">Mot de passe:</label>
 		<input class="elt_form" id="login_password" type="password" aria-required="true"/>
+		<input class="elt_form" id="login_redirect_page" type="hidden" value="{$redirect_page}" />
 		<button id="login_submit" class="elt_form">Connexion</button>
 	</div>
 </article>
