@@ -38,6 +38,13 @@
   </route>
 
   <route>
+    <path>/login-{redirect_page}</path>
+    <controller>Home</controller>
+    <action>login</action>
+    <redirect_page>(\w+)</redirect_page>
+  </route>
+
+  <route>
     <path>/404</path>
     <controller>Error</controller>
     <action>error_404</action>
