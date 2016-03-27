@@ -12,7 +12,7 @@
   </nav>
 
   <div id="header_profile">
-    {if $user.email ne ''}
+    {if $user.isConnected eq true}
     <a href="#">
       <img id="header_profile_avatar" src="http://2.gravatar.com/avatar/{$user.email|md5}" alt='Image de profil' />
       <p id="header_profile_username">{$user.display_name}</p>
