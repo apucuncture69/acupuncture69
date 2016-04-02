@@ -3,6 +3,11 @@
   margin: 0px;
 }
 
+/* Define the root font size (used by rem unit)*/
+html {
+  font-size: 100%;
+}
+
 header {
   height: 64px;
   background-color: #009688;
@@ -19,10 +24,15 @@ footer {
   line-height: 55px;
   background-color: #333;
   height: 55px;
+  font-size: 1rem !important;
 }
 
 abbr {
   cursor: help;
+}
+
+p, span {
+  font-size: 1rem;
 }
 
 #img_logo_site {
@@ -139,7 +149,7 @@ abbr {
 
 .acu_tile h1 {
   margin-bottom: 10px;
-  font-size: 200%;
+  font-size: 2rem;
 }
 
 /* SEARCH VIEW STYLE */
@@ -152,7 +162,7 @@ abbr {
     order: 2;
     border-style: none;
     flex: 1 1 auto;
-    font-size: 120%;
+    font-size: 1rem;
     padding: 10px;
 }
 
@@ -168,7 +178,7 @@ abbr {
 
 .acu_search_img:before {
     color: rgb(204, 204, 204);
-    font-size: 21px;
+    font-size: 1rem;
     content: '🔍';
 }
 /* ENDOF SEARCH VIEW STYLE */

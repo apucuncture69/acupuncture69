@@ -1,3 +1,34 @@
+header {
+  height: auto;
+}
+
+#header_navigation_items li a {
+  float: none;
+  line-height: 10vh;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+#header_navigation_items li {
+  background-color: #009688;
+}
+
+#header_profile {
+  height: 10vh;
+  float: none;
+}
+
+#header_profile_username {
+  text-align: center;
+  width: 100%;
+  line-height: 10vh;
+}
+
+#img_logo_site {
+  float: none;
+}
+
 #main_content_tiles {
   width: 80vw;
 }
