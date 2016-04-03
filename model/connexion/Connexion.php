@@ -1,26 +1,27 @@
 <?php
+
 class Connexion
 {
     private static $_connexion;
-
-    private function __construct(){
-        $host = 'localhost';
-        $base = 'acu';
-        $user = 'root';
-        $pass = 'Admin2016$*';
-
-        self::$_connexion = new PDO("mysql:host=$host;dbname=$base", $user, $pass);
-    }
-
-    /* @throws Exception */
+    
+    /* @throws PDOException */
     public static function getConnexion()
     {
-        if (!isset(self::$_connexion)) // Si on n'a pas encore instancié notre classe.
+        if (!isset(self::$_connexion)) 
         {
-            self::$_connexion = new self; // On s'instancie nous-mêmes. :)
+            self::$_connexion = self::getPDOObject(); 
         }
-
+        
         return self::$_connexion;
     }
+
+    private static function getPDOObject()
+    {
+	    $host = 'localhost';
+        $base = 'acu';
+        $user = 'root';
+        $pass = 'root';
+        
+        return new PDO("mysql:host=$host;dbname=$base", $user, $pass);
+    }
 }
-?>
