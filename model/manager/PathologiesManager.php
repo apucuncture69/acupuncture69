@@ -3,34 +3,43 @@
 /* Classe récupérant les pathologies depuis la base de données
    Auteur : Robin */
 
+require_once('model/acu/Pathologie.php');
+require_once('model/manager/MeridiensManager.php');
+require_once('model/manager/SymptomesManager.php');
+
 class PathologiesManager
 {
 	private $_db;		// PDO Object
 	private $_baseSelectQuery;
 	private $_orderByClause;
-	private $_joinMore;
+	private $_subQuery;
 	
 	/* Constructeur */
 	public function __construct($_db)
 	{
 		$this->_db = $_db;
+		$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 		$this->_baseSelectQuery = "SELECT patho.idP as 'idP', patho.type as 'type', patho.desc as 'desc', meridien.code as 'code'
 					   FROM patho
 					   LEFT JOIN meridien ON meridien.code = patho.mer
 				   	  ";
 
-		$this->_joinMore = 'LEFT JOIN symptPatho ON symptPatho.idP = patho.idP
+		$this->_subQuery = 'SELECT patho.idP
+				    FROM patho
+				    LEFT JOIN symptPatho ON symptPatho.idP = patho.idP
 				    LEFT JOIN symptome ON symptome.idS = symptPatho.idS
 				    LEFT JOIN keySympt ON keySympt.idS = symptome.idS
 				    LEFT JOIN keywords ON keywords.idK = keySympt.idK
 				   ';
 
-		$this->_orderByClause = 'order by patho.type, patho.desc, meridien.yin, meridien.element, meridien.nom, symptPatho.aggr, symptome.desc, keywords.name';
+		$this->_orderByClause = 'order by patho.type, patho.desc, meridien.yin, meridien.element, meridien.nom';
 	}
 
 	/* Récupération d'objets de type acu.Pathologie */
 	
 	/* Renvoie la pathologie d'ID $idP
+	   @throws PDOException
 	   @param $idP : String
 	   @return acu.Pathologie		*/
 	public function get($idP)
@@ -43,6 +52,7 @@ class PathologiesManager
 	}
 
 	/* Renvoie la liste de toutes les pathologies
+	   @throws PDOException
 	   @return List<acu.Pathologie>			*/
 	public function getList()
 	{
@@ -61,6 +71,7 @@ class PathologiesManager
 	}
 
 	/* Renvoie la liste des pathologies répondant aux critères définis
+	   @throws PDOException
  	   @param $criteriaMap : Map<String,String> (ou Map<String,List<String>)
 		  Liste de critères de recherche sous forme de paire clé/valeur
 		  - clé : 'meridien' (nom du méridien), 'type' (type de pathologie), 'desc' (description de la pathologie), 'keyword' (mot-clé associé à un symptôme de la pathologie)
@@ -70,6 +81,7 @@ class PathologiesManager
 		 Ex: $criteriaMap['meridien'] = array('poumon','ren mai');
 		     $criteriaMap['desc'] = '%luo%';
 		     Renvoie les pathologies dont le méridien est 'poumon' OU 'ren mai' ET qui contiennent le mot 'luo' dans leur description
+		 Si $criteriaMap est vide, getList() sera appelée
 	   @return List<acu.Pathologie>  	  
 	*/
 	public function find($criteriaMap)
@@ -81,25 +93,43 @@ class PathologiesManager
 		$mapping['desc'] = 'patho.desc';
 		$mapping['keyword'] = 'keywords.name';
 
+		$list = array();
+
 		$i = 0;
 
 		foreach ($criteriaMap as $key => $value)
 		{
 			$whereClause.= $this->_getSQLFromCriteria($mapping[$key],$value);
-			if ($i<count($criteriaMap-1)
+			if ($i<count($criteriaMap)-1)
 			{
 				$whereClause.= ' AND ';
 			}
 			$i++;
 		}
 
-		$q = $this->_db->query($this->_baseSelectQuery.' '.$this->_joinMore.' '.$whereClause.' '.$this->_orderByClause);
-
-		$donnees = $q->fetchAll(PDO::FETCH_ASSOC);
-
-		foreach ($donnees as $ligne)
+		if ($i != 0)
 		{
-			$list[] = $this->_getPathoFromLine($ligne);
+			if (isset ($criteriaMap['keyword']))
+			{
+				$query = $this->_baseSelectQuery.' WHERE patho.idP IN ('.$this->_subQuery.' '.$whereClause.') '.$this->_orderByClause;	
+			}
+			else
+			{
+				$query = $this->_baseSelectQuery.' '.$whereClause.' '.$this->_orderByClause;
+			}
+
+			$q = $this->_db->query($query);
+
+			$donnees = $q->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach ($donnees as $ligne)
+			{
+				$list[] = $this->_getPathoFromLine($ligne);
+			}
+		}
+		else
+		{
+			$list = $this->getList();
 		}
 
 		return $list;
@@ -110,10 +140,12 @@ class PathologiesManager
 		$type = $ligne['type'];
 		$desc = $ligne['desc'];
 
+		$idP = $ligne['idP'];
+
 		$meridiensManager = new MeridiensManager($this->_db);
 		$symptomesManager = new SymptomesManager($this->_db);
 
-		$meridien = $meridiensManager->getByPatho($ligne['code']);
+		$meridien = $meridiensManager->getByPatho($idP);
 		$symptomes = $symptomesManager->getListByPatho($idP);
 		
 		$hydrateMap = array('Meridien'=>$meridien,'Type'=>$type,'Description'=>$desc,'Symptomes'=>$symptomes);
@@ -124,20 +156,22 @@ class PathologiesManager
 	private function _getSQLFromCriteria($sqlKey,$value)
 	{
 		$str = '(';
-		if (is_array($value)
+		if (is_array($value))
 		{
+			$i = 0;
 			foreach ($value as $item)
 			{
-				$str.= "$sqlKey like $item";
-				if ($i<count($value-1)
+				$str.= "$sqlKey like '$item'";
+				if ($i<count($value)-1)
 				{
 					$str.= ' OR ';
 				}
+				$i++;
 			}
 		}
 		else 
 		{
-			$str .= "$sqlKey like $value";
+			$str .= "$sqlKey like '$value'";
 		}	
 
 		return $str.')';
