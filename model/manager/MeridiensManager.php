@@ -1,5 +1,7 @@
 <?php
 
+require_once ('model/acu/Meridien.php');
+
 /* Classe récupérant les méridiens depuis la base de données
    Auteur : Robin */
 
@@ -21,11 +23,12 @@ class MeridiensManager
 	/* Récupération d'objets de type acu.Meridien */
 
 	/* Renvoie le méridien associé à la pathologie d'ID $idP
+	   @throws PDOException
 	   @param $idP : String
 	   @return acu.Meridien			*/
 	public function getByPatho($idP)
 	{
-		$q = $this->_db->query($this->_baseSelectQuery.' WHERE patho.idP = '.$idP);
+		$q = $this->_db->query($this->_baseSelectQuery." WHERE patho.idP = '".$idP."'");
 
 		$ligne = $q->fetch(PDO::FETCH_ASSOC);
 

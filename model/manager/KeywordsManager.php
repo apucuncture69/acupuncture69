@@ -32,6 +32,8 @@ class KeywordsManager
 
 		$donnees = $q->fetchAll(PDO::FETCH_NUM);
 
+		$list = array();
+
 		foreach ($donnees as $ligne)
 		{
 			$list[] = $ligne[0];

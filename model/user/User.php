@@ -7,8 +7,9 @@ class User
 {
 	private $_email;	
 	private $_hashPwd;	//hash du mot de passe
-	private $_firstname;
-	private $_lastname;
+	private $_firstName;
+	private $_lastName;
+
 	private $_keys;		//Map<String,String> : Liste de clés pour les cookies (maintien de la connexion...)
 
 	/* Constructeur */
@@ -18,6 +19,7 @@ class User
 		{
 			$this->hydrate($data);
 		}
+		$this->_keys = array();
 	}
 	
 	/* Getters */	
@@ -32,17 +34,28 @@ class User
 		return $this->_hashPwd;
 	}
 
-	public function getFirstname()
+	public function getFirstName()
 	{
-		return $this->_firstname;
+		return $this->_firstName;
 	}
 
-	public function getLastname()
+	public function getLastName()
 	{
-		return $this->_lastname;
+		return $this->_lastName;
+	}
+
+	public function getKey($name)
+	{
+		return $this->_keys[$name];
+	}
+
+	public function getKeys()
+	{
+		return $this->_keys;
 	}
 
 	/* Setters */
+
 	public function setEmail($email)
 	{
 		$this->_email = $email;
@@ -53,27 +66,46 @@ class User
 		$this->_hashPwd = $hashPwd;
 	}
 
-	public function setFirstName($firstName)
+	public function setFirstName($firstname)
 	{
-		$this->_firstname = $firstname;
+		$this->_firstName = $firstname;
 	}
 
-	public function setLastname($lastname)
+	public function setLastName($lastname)
 	{
-		$this->_lastname = $lastname;
+		$this->_lastName = $lastname;
+	}
+
+	public function setKey($name,$value)
+	{
+		$this->_keys[$name] = $value;
+	}
+
+	/* Suppression de clés */	
+
+	public function deleteKey($name)
+	{
+		unset($this->_keys[$name]);
+	}
+
+	public function deleteKeys()
+	{
+		$this->_keys = array();
 	}
 
 	/* Hydratation */
+
 	public function hydrate(array $data)
 	{
 		foreach ($data as $key=>$value)
 		{
 			$method = 'set'.ucfirst($key);
 
-			if (method_exists($this, $method)
+			if (method_exists($this, $method))
 			{
 				$this->$method($value);
 			}
 		}
 	}
 }
+	

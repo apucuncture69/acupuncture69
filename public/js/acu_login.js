@@ -24,7 +24,7 @@ $( document ).ready(function() {
 				$('#login_password').addClass( 'elt_form_err' );
 			}
 		}
-		
+
 	});
 //^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$
 	$('#login_email').keyup(function(){

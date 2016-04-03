@@ -2,11 +2,16 @@
 <html lang="fr">
 
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Acupuncture</title>
-  <link rel="stylesheet" type="text/css" href="public/style/main_style.css" />
-  <link rel="stylesheet" type="text/css" href="public/style/main_style_small_device.css" media="screen and (max-width: 1280px)"/>
-  <link rel="stylesheet" type="text/css" href="public/style/{$module_name}.css" />
-  <meta charset="UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="public/style/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="public/style/main_style.css">
+  <link rel="stylesheet" type="text/css" href="public/style/main_style_small_device.css" media="screen and (max-width: 1280px)">
+  <link rel="stylesheet" type="text/css" href="public/style/{$module_name}.css">
 </head>
 
 <body>
@@ -23,6 +28,7 @@
   </footer>
 
   <script src="http://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
+  <script src="public/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="public/js/sha256/scripts/qunit.js" type="text/javascript"></script>
   <script src="public/js/sha256/scripts/sha256.jquery.debug.js" type="text/javascript"></script>
   <script src="public/js/acu_main.js" type="text/javascript"></script>
