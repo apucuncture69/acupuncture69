@@ -12,6 +12,7 @@ class UserKeysManager
 	public function __construct($_db)
 	{
 		$this->_db = $_db;
+		$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->_baseSelectQuery = "SELECT userKeys.name as 'key', userKeys.value as 'value'
 					   FROM userKeys
 				   	  ";
@@ -27,9 +28,11 @@ class UserKeysManager
 		   Tableau associant le nom d'une clé à sa valeur			*/
 	public function getMapByUser($email)
 	{
-		$q = $this->_db->query($this->_baseSelectQuery.' WHERE userKeys.email = '.$email.' '.$this->_orderByClause);
+		$q = $this->_db->query($this->_baseSelectQuery." WHERE userKeys.user_email = '".$email."' ".$this->_orderByClause);
 
 		$donnees = $q->fetchAll(PDO::FETCH_ASSOC);
+
+		$list = array();
 
 		foreach ($donnees as $ligne)
 		{
@@ -43,6 +46,7 @@ class UserKeysManager
 	}
 	
 	/* Insère ou met à jour les clés avec les nouvelles valeurs pour l'utilisateur $user et supprime éventuellement les clés retirées de la map 
+	   @throws PDOException
 	   @param $user : user.User															*/
 	public function addOrUpdateOrDeleteKeys($user)
 	{
@@ -71,11 +75,13 @@ class UserKeysManager
 					$q_upd->bindValue(':name', $name, PDO::PARAM_STR);
 					$q_upd->bindValue(':value',$keys[$name], PDO::PARAM_STR);
 					$q_upd->bindValue(':user_email',$user->getEmail(),PDO::PARAM_STR);
+		
+					$q_upd->execute();
 				}
 			}
 			else 
 			{
-				$this->_db->exec("DELETE FROM userKeys WHERE user_email = ".$user->getEmail()." AND name = '".$name."'");
+				$this->_db->exec("DELETE FROM userKeys WHERE user_email = '".$user->getEmail()."' AND name = '".$name."'");
 			}
 		}
 		
@@ -95,10 +101,11 @@ class UserKeysManager
 	}
 
 	/* Supprime toutes les clés associées à un utilisateur 
+	   @throws PDOException
 	   @param $user : user.User						*/
 	public function deleteUserKeys($user)
 	{
-		$this->_db->exec('DELETE FROM userKeys WHERE user_email = '.$user->getEmail());
+		$this->_db->exec("DELETE FROM userKeys WHERE user_email = '".$user->getEmail()."'");
 	}
 }
 
