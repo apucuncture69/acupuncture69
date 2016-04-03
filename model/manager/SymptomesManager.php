@@ -3,7 +3,10 @@
 /* Classe récupérant les symptômes depuis la base de données
    Auteur : Robin */
 
-class MeridiensManager
+require_once ('model/acu/Symptome.php');
+require_once ('model/manager/KeywordsManager.php');
+
+class SymptomesManager
 {
 	private $_db;		// PDO Object
 	private $_baseSelectQuery;
@@ -24,6 +27,7 @@ class MeridiensManager
 	/* Récupération d'objets de type acu.Symptome */
 
 	/* Renvoie la liste des symptômes associé à la pathologie d'ID $idP
+	   @throws PDOException
 	   @param $idP : String
 	   @return List<acu.Symptome>			*/
 	public function getListByPatho($idP)
@@ -50,7 +54,7 @@ class MeridiensManager
 		
 		$keywords = $keywordsManager->getListBySymptome($idS);
 
-		$hydrateMap = array('Description'=>$desc,'MotCle'=>$keywords,'Aggr'=>$aggr);
+		$hydrateMap = array('Description'=>$desc,'MotsCles'=>$keywords,'Aggr'=>$aggr);
 
 		return new Symptome($hydrateMap);
 	}
