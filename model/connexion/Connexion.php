@@ -17,11 +17,14 @@ class Connexion
 
     private static function getPDOObject()
     {
-	    $host = 'localhost';
+	$host = 'localhost';
         $base = 'acu';
         $user = 'root';
         $pass = 'root';
         
         return new PDO("mysql:host=$host;dbname=$base", $user, $pass);
     }
+
+    
+    
 }
