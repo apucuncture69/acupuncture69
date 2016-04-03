@@ -50,6 +50,7 @@ class Symptome
 	public function setAggr($aggr)
 	{
 		$this->_aggr = $aggr;
+	}
 
 	/* Hydratation */
 
@@ -59,9 +60,10 @@ class Symptome
 		{
 			$method = 'set'.ucfirst($key);
 
-			if (method_exists($this, $method)
+			if (method_exists($this, $method))
 			{
 				$this->$method($value);
 			}
 		}
 	}
+}
