@@ -6,5 +6,10 @@
     <controller>User</controller>
     <action>index</action>
   </route>
+  <route>
+    <path>/api/symptome</path>
+    <controller>SymptomeService</controller>
+    <action>index</action>
+  </route>
 
 </routing>

@@ -1,9 +1,10 @@
 <?php 
 header('Content-Type: text/xml; charset=UTF-8');
 require_once("../config/WebserviceDefine.php");
-require_once($ManagerFolderPath."PathologiesManager.php");
-require_once($ConnexionFolderPath."Connexion.php");
-// intégrer fichier model avec require once et en modifiant le fichier WebDefine
+require_once(ManagerFolderPath."PathologiesManager.php");
+require_once(ConnexionFolderPath."Connexion.php");
+require_once(ModelFolderPath."Pathologie.php");
+
 
 class PathologieService{
     
@@ -22,7 +23,11 @@ private static function GetPathologie($id)
 
       $PathoManager= new  PathologiesManager(Connexion.getConnexion());
       $patho = $PathoManager->get($id);
-      return  "<response><value>".$patho."</value></response>";
+      //return  "<response><value>".$patho."</value></response>";
+      
+      
+      
+      
      //mettre en forme selon le model de patho 
      //créer un xsd et dtd
      //ajouter route au fichier 
