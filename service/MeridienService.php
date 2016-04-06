@@ -19,7 +19,6 @@ public function index()
     $result = null;
 	
     
-    //voir routage avec nico si on fait deux routes ou si on fait comme ca
 	 if($_SERVER['REQUEST_METHOD']=='GET'){
             if ($id!=''){
                 $result = $this->GetMeridien($id);
@@ -40,8 +39,8 @@ public function index()
 //voir ce qu'il y a à renvoyer si xml ou juste liste des meridiens
 private static function GetMeridien()
 {   
-    $pathos = self::$_PathologieManager->getList();
-    self::ConvertXml($pathos);
+    $meridiens = self::$_MeridiensManager->getList();
+    self::ConvertXml($meridiens);
       
     return $result;
 }

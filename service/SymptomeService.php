@@ -20,7 +20,7 @@ public function index()
     
         //voir routage avec nico si on fait deux routes ou si on fait comme ca
 		if($_SERVER['REQUEST_METHOD']=='GET'){
-			$result = $this->get($id);
+			$result="aze";
 		}
 		return $result;
      
