@@ -1,6 +1,6 @@
 <?php 
 header('Content-Type: text/xml; charset=UTF-8');
-require_once("/config/WebserviceDefine.php");
+require_once("/config/WebServiceDefine.php");
 require_once(ManagerFolderPath."MeridiensManager.php");
 require_once(ConnexionFolderPath."Connexion.php");
 require_once(ModelFolderPath."Pathologie.php");

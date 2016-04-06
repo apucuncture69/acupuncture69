@@ -1,5 +1,5 @@
-<?php 
-require_once("/config/WebserviceDefine.php");
+<?php
+require_once("config/WebServiceDefine.php");
 require_once(ManagerFolderPath."PathologiesManager.php");
 require_once(ConnexionFolderPath."Connexion.php");
 require_once(ModelFolderPath."Pathologie.php");
@@ -47,7 +47,6 @@ private static function ConvertXml($pathos){
     $writer =  new xmlwriter();
     $writer->openMemory();
     $writer->startDocument('1.0','UTF-8');
-    //$writer->startDocument('1.0');
      
     $writer->setIndent(true);
     $writer->startElement('pathologies');//début pathologies 1
@@ -83,13 +82,8 @@ private static function ConvertXml($pathos){
  
     
     
-    $result=$writer->outputMemory(true);
-    $writer->flush();
-    
-   
-    
-        
-   
+    $xmlObject = new SimpleXMLElement(utf8_encode($writer->outputMemory(true)));
+    $result =$xmlObject->asXml();
     return $result;
 }
 
@@ -102,4 +96,4 @@ private static function ConvertXml($pathos){
 
 
 }
-?>
+?>  
