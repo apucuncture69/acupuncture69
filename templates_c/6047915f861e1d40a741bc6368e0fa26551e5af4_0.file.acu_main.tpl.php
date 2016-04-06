@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-25 22:14:34
+/* Smarty version 3.1.28, created on 2016-04-06 10:30:05
   from "C:\Program Files\wamp\www\acupuncture\view\acu_main.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f5aa3acd63a2_11504870',
+  'unifunc' => 'content_5704c90d575469_66276840',
   'file_dependency' => 
   array (
     '6047915f861e1d40a741bc6368e0fa26551e5af4' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_main.tpl',
-      1 => 1458903659,
+      1 => 1459931348,
       2 => 'file',
     ),
   ),
@@ -21,17 +21,23 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:view/".((string)$_smarty_tpl->tpl_vars[\'module_name\']->value).".tpl' => 1,
   ),
 ),false)) {
-function content_56f5aa3acd63a2_11504870 ($_smarty_tpl) {
+function content_5704c90d575469_66276840 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Acupuncture</title>
-  <link rel="stylesheet" type="text/css" href="public/style/main_style.css" />
+
+  <link rel="stylesheet" type="text/css" href="public/style/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="public/style/main_style.css">
+  <link rel="stylesheet" type="text/css" href="public/style/main_style_small_device.css" media="screen and (max-width: 1280px)">
   <link rel="stylesheet" type="text/css" href="public/style/<?php echo $_smarty_tpl->tpl_vars['module_name']->value;?>
-.css" />
-  <meta charset="UTF-8">
+.css">
 </head>
 
 <body>
@@ -53,6 +59,18 @@ function content_56f5aa3acd63a2_11504870 ($_smarty_tpl) {
 
   <?php echo '<script'; ?>
  src="http://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="public/js/bootstrap.min.js" type="text/javascript"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="public/js/sha256/scripts/qunit.js" type="text/javascript"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="public/js/sha256/scripts/sha256.jquery.debug.js" type="text/javascript"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="public/js/acu_main.js" type="text/javascript"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src="public/js/<?php echo $_smarty_tpl->tpl_vars['module_name']->value;?>

@@ -2,12 +2,6 @@
   width: 100%;
 }
 
-#acu_infos_team > div {
-  width: 250px;
-  float: left;
-  padding: 10px;
-}
-
 .acu_infos_userinfos {
   background-color: rgba(0,150,136,0.53);
   line-height: 50px;
