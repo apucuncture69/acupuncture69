@@ -69,6 +69,53 @@ class PathologiesManager
 
 		return $list;
 	}
+	
+	/* Renvoie la liste des valeurs distinctes d'un des critères utilisés pour la fonction "find"
+	   @throws PDOException
+	   @param $criteria : String
+	   	Valeurs possibles : 'meridien' (nom du méridien), 'type' (type de pathologie), 'desc' (description de la pathologie), 'keyword' (mot-clé associé à un symptôme de la pathologie)
+	   @return List<String>
+	*/
+	public function getValuesOfCriteria($criteria)
+	{
+		if ($criteria == 'meridien')
+		{
+			$table = 'meridien';
+			$field = 'nom';
+		}
+		else if ($criteria == 'type')
+		{
+			$table = 'patho';
+			$field = 'type';
+		}
+		else if ($criteria == 'desc')
+		{
+			$table = 'patho';
+			$field = 'desc';
+		}
+		else if ($criteria == 'keyword')
+		{
+			$table = 'keywords';
+			$field = 'name';
+		}
+		else
+		{
+			return NULL;
+		}
+		
+		$q = $this->_db->query("SELECT DISTINCT `$field` FROM `$table` ORDER BY `$field`");
+		
+		$donnees = $q->fetchAll(PDO::FETCH_NUM);
+
+		$list = array();
+
+		foreach ($donnees as $ligne)
+		{
+			$list[] = $ligne[0];
+		}
+
+		return $list;
+	}
 
 	/* Renvoie la liste des pathologies répondant aux critères définis
 	   @throws PDOException
