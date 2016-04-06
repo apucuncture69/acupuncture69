@@ -7,8 +7,22 @@
     <action>index</action>
   </route>
   <route>
-    <path>/api/symptome</path>
+    <path>/api/symptomes</path>
     <controller>SymptomeService</controller>
+    <action>index</action>
+  </route>
+  <route>
+    <path>/api/pathologies</path>
+    <controller>PathologieService</controller>
+    <action>index</action>
+  </route>
+  <route>
+    <path>/api/pathologies</path>
+    <controller>PathologieService</controller>
+    <action>find</action>
+  <route>
+    <path>/api/meridiens</path>
+    <controller>MeridienService</controller>
     <action>index</action>
   </route>
 
