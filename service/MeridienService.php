@@ -1,50 +1,73 @@
 <?php 
-header('Content-Type: text/xml; charset=UTF-8');
-require_once("/config/WebServiceDefine.php");
-require_once(ManagerFolderPath."MeridiensManager.php");
+require_once("config/WebServiceDefine.php");
+require_once(ManagerFolderPath."PathologiesManager.php");
 require_once(ConnexionFolderPath."Connexion.php");
 require_once(ModelFolderPath."Pathologie.php");
+require_once(ModelFolderPath."Meridien.php");
 
 
-class PathologieService{
+class MeridienService{
     
-private static $_MeridienManager;
+private static $_PathologiesManager;
 
 public function index()
 {
-    $connexion=new Connexion();
-    self::$_MeridienManager= new  MeridiensManager($connexion->getConnexion());
-   
-    $id='';//test à virer
     $result = null;
-	
     
-	 if($_SERVER['REQUEST_METHOD']=='GET'){
-            if ($id!=''){
-                $result = $this->GetMeridien($id);
-            }
-            else
-            {
-                $result= $this->GetMeridiens();
-            }
+    $connexion=new Connexion();
+    self::$_PathologiesManager= new  PathologiesManager($connexion->getConnexion());
+
+    
+	if($_SERVER['REQUEST_METHOD']=='GET'){
+                $result = $this->GetAllMeridiens();
 		}
-		return $result;
+        
+        
+        
+	return $result;
 
      
 }    
 
 
 
-
-//voir ce qu'il y a à renvoyer si xml ou juste liste des meridiens
-private static function GetMeridien()
+private static function GetAllMeridiens()
 {   
-    $meridiens = self::$_MeridiensManager->getList();
-    self::ConvertXml($meridiens);
-      
+    $result=null;
+    $result = self::$_PathologiesManager->getValuesOfCriteria('meridien');
     return $result;
 }
 
+
+
+private static function ConvertXml($meridiens){
+/*    $result=null;
+    $writer =  new xmlwriter();
+    $writer->openMemory();
+    $writer->startDocument('1.0','UTF-8');
+     
+    $writer->setIndent(true);
+    $writer->startElement('meridiens'); //début méridiens
+    
+    foreach ($meridiens as $meridien) {
+    
+    $meridien =(meridien) $meridien;
+    
+        $writer->startElement('meridien');//début méridien 
+                $writer->writeElement('nom',$meridien->getNom());
+                $writer->writeElement('element',$meridien->getElement());
+                $writer->writeElement('yin',$meridien->isYin());
+            $writer->endElement();//fin méridien
+    }
+    
+    $writer->endElement(); //fin méridiens
+    $writer->endDocument(); // fin du document  
+    
+    $xmlObject = new SimpleXMLElement(utf8_encode($writer->outputMemory(true)));
+    $result =$xmlObject->asXml();
+    return $result;
+    */
+}
 
 
 

@@ -1,26 +1,23 @@
 <?php 
 header('Content-Type: text/xml; charset=UTF-8');
-require_once("/config/WebServiceDefine.php");
-require_once(ManagerFolderPath."SymptomesManager.php");
+require_once("config/WebServiceDefine.php");
+require_once(ManagerFolderPath."PathologiesManager.php");
 require_once(ConnexionFolderPath."Connexion.php");
 require_once(ModelFolderPath."Symptome.php");
 
 class SymptomeService {
     
-private $_SymptomeManager;
+private $_PathologieManager;
 
 
 public function index()
 {
     $connexion=new Connexion();
-    self::$_SymptomeManager= new  SymptomesManager($connexion->getConnexion());
+    self::$_PathologieManager= new  PathologieManager($connexion->getConnexion());
    
-    //test à envler
-    $id=1;
     
-        //voir routage avec nico si on fait deux routes ou si on fait comme ca
 		if($_SERVER['REQUEST_METHOD']=='GET'){
-			$result="aze";
+			 $result =self::getAllSymptome()
 		}
 		return $result;
      
@@ -32,11 +29,13 @@ public function index()
       
       	
 
-	// récupération de tous les symptomes voir avec robin pour les managers
-	private function get($id) {
+	private static function getAllSymptome() {
     $result =   null;
-
-
+    
+    $symptomes  =self::$_PathologieManager->getList();
+    $result     =self::ConvertXml($symptomes);
+        
+    return $result;
 
     }
 
