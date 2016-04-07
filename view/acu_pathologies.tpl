@@ -21,28 +21,9 @@
       </thead>
       <tbody aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
         <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
+          <td colspan="4">
+            <img id="patho_img_loading" src="public/img/loading.gif" alt="Chargement..." aria-describedby="chargement des données"/>
+          </td>
         </tr>
       </tbody>
     </table>
