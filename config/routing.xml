@@ -45,6 +45,12 @@
   </route>
 
   <route>
+    <path>/templating</path>
+    <controller>Templating</controller>
+    <action>draw</action>
+  </route>
+
+  <route>
     <path>/404</path>
     <controller>Error</controller>
     <action>error_404</action>
