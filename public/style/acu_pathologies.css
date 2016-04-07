@@ -1,3 +1,22 @@
+.tab_elt_pri{
+  text-align: left;
+  font-weight: bold;
+}
+
+.tab_elt_sec{
+  text-align: right;
+  font-style: italic;
+}
+
+#patho_img_loading{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+}
+
+
+
 #acu_pathologie_table {
   border: none;
   border-collapse: collapse;
