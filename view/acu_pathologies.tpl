@@ -19,7 +19,7 @@
           <th>Symptomes</th>
         </tr>
       </thead>
-      <tbody aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
+      <tbody id="pathologies_content" aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
         <tr>
           <td colspan="4">
             <img id="patho_img_loading" src="public/img/loading.gif" alt="Chargement..." aria-describedby="chargement des données"/>
