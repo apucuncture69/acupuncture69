@@ -17,6 +17,11 @@
     <action>index</action>
   </route>
   <route>
+    <path>/api/pathologies/filtres</path>
+    <controller>PathologieService</controller>
+    <action>GetFilterData</action>
+  </route>
+  <route>
     <path>/api/meridiens</path>
     <controller>MeridienService</controller>
     <action>index</action>

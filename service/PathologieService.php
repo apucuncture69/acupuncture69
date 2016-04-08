@@ -12,11 +12,16 @@ class PathologieService{
     
 private static $_PathologieManager;
 
-public static  function index()
-{
+private static function init(){
     $connexion=new Connexion();
     self::$_PathologieManager= new  PathologiesManager($connexion->getConnexion());
     
+}
+
+
+public static  function index()
+{
+    self::init();
 		    
 		if($_SERVER['REQUEST_METHOD']=='GET'){
             $result = self::GetPathologies();
@@ -34,15 +39,18 @@ public static function find($criteriaMap){
     
 }
 
+
 private static function GetPathologies()
-{   
-    
+{       
     $pathos = self::$_PathologieManager->getList();
-    $result=self::ConvertXml($pathos);
+    $result=self::ConvertPathologiesToXml($pathos);
     return $result;
 }
 
-private static function ConvertXml($pathos){
+
+
+
+private static function ConvertPathologiesToXml($pathos){
     
     $writer =  new xmlwriter();
     $writer->openMemory();
@@ -79,17 +87,52 @@ private static function ConvertXml($pathos){
     $writer->endElement(); //fin pathologies 1/
     $writer->endDocument(); // fin du document  
     
- 
-    
-    
+      
     $xmlObject = new SimpleXMLElement(utf8_encode($writer->outputMemory(true)));
     $result =$xmlObject->asXml();
     return $result;
 }
 
+public static function GetFilterData(){
+    $result=null;
+    self::init();
+    
+    $listOfMeridien =self::$_PathologieManager->getValuesOfCriteria('meridien');
+    $listOfTypePatho =self::$_PathologieManager->getValuesOfCriteria('type');
+    $result =self::ConvertFilterToXml($listOfMeridien,$listOfTypePatho);
+    
+    return $result;  
+}
 
-
-
+private static function ConvertFilterToXml($meridiens,$pathologieTypes){
+    $writer =  new xmlwriter();
+    $writer->openMemory();
+    $writer->startDocument('1.0','UTF-8');
+     
+    $writer->setIndent(true);
+    $writer->startElement('filtres');//début filtres
+    
+    $writer->startElement('meridiens'); //début méridiens
+    foreach ($meridiens as $meridien) {
+         $writer->writeElement('meridien',$meridien);
+    }
+    $writer->endElement();// fin méridiens
+    
+    $writer->startElement('types'); // début types
+    foreach ($pathologieTypes as $type) {
+         $writer->writeElement('type',$type);
+    }
+    $writer->endElement();//fin types
+    
+    $writer->endElement();//fin filtres
+    $writer->endDocument(); // fin du document  
+    
+      
+    $xmlObject = new SimpleXMLElement(utf8_encode($writer->outputMemory(true)));
+    $result =$xmlObject->asXml();
+    return $result;
+    
+} 
 
 
 
