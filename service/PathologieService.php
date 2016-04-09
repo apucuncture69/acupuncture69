@@ -24,7 +24,13 @@ public static  function index()
     self::init();
 		    
 		if($_SERVER['REQUEST_METHOD']=='GET'){
-            $result = self::GetPathologies();
+            
+            if (isset($_GET['meridien'])or isset($_GET['type'])){
+                $result = self::FilterByMeridienAndType($_GET['meridien'],$_GET['type']);
+            }
+            else {
+                $result = self::GetPathologies();
+            }
 		} 
     		return $result;
 
@@ -32,11 +38,20 @@ public static  function index()
 
 
 
+/*recherche à l'aide d'un méridien
+URL de filtrage avec pour paramètre le filtre de méridien 'P' et le filtre de type sur 'me' api/pathologies?meridien=P&type=me
 
-//voir pour le routage avec le map
-public static function find($criteriaMap){
-
+*/ 
+public static function FilterByMeridienAndType($meridien, $type){
+    $result=null;
+    self::init();
+    $filtre['meridien']='%'.$meridien.'%';
+    $filtre['type']    ='%'.$type.'%';
+  
     
+    $pathos=self::$_PathologieManager->find($filtre);
+    $result=self::ConvertPathologiesToXml($pathos);
+    return $result; 
 }
 
 
