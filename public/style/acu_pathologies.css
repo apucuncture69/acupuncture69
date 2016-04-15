@@ -15,6 +15,16 @@
   width: 50px;
 }
 
+#patho_button_search{
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  font-size: 120%;
+  color: grey;
+  padding: 10px;
+}
+
+
 
 
 #acu_pathologie_table {
