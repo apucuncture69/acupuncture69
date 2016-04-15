@@ -1,11 +1,6 @@
 $( document ).ready(function() {
 
-	$('.acu_infos').hover(function(){
-		$('#login_password').addClass( 'elt_form_err' );
-		$('#login_password').removeClass( 'elt_form_err' );
-	});
-
-	$('.acu_infos').each(function( index ) {
+	$('.acu_infos_profile').each(function( index ) {
 		var img = $(this).children( 'div.acu_infos_img' );
 		var txt = $(this).children( 'div.acu_infos_txt' ).children( 'p:first' );
 		img.hover(
