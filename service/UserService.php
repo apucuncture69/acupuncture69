@@ -38,7 +38,7 @@ class UserService
 		if($r->getHashPwd() == $_POST['password']){
 			$_SESSION['acu_tck_login']='OK';
 			$_SESSION['user_email']=$r->getEmail();
-			$_SESSION['user_display_name']=$r->getFirstName();
+			$_SESSION['user_display_name']=$r->getFirstName().' '.$r->getLastName();
 			$b=true;
 		}
 		return $b;
