@@ -11,6 +11,11 @@
   top: -50px;
 }
 
-.acu_infos_userinfos:hover {
+.acu_infos_userinfos_hover {
   background-color: rgba(0,150,136,1);
+  line-height: 50px;
+  padding-left: 10px;
+  position: relative;
+  color: white;
+  top: -50px;
 }
