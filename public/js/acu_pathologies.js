@@ -18,4 +18,8 @@ $( document ).ready(function() {
 	    }
 	});
 
+	$('#patho_button_search').click(function(){
+    		document.location.href="login-pathologies";
+	});
+
 });
