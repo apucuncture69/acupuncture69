@@ -12,6 +12,14 @@
   </div>
 </article>
 
+<!-- Flux RSS -->
+<article class="acu_tile">
+  <h1 id="acu_home_news_title">Actualités</h1>
+  <div id="acu_news_content" aria-labelledby="acu_home_news_title">
+    Flux RSS
+  </div>
+</article>
+
 <!-- Pathologies search tile -->
 <article class="acu_tile">
   <h1 id="acu_home_search_title">Chercher une pathologie</h1>

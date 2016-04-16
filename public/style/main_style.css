@@ -126,7 +126,11 @@ p {
     background-color: #19A094;
 }
 
-#header_menu_user li {
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    background-color: #008a7c;
+}
+
+#header_menu_user a {
   color: white;
 }
 

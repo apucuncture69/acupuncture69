@@ -51,7 +51,7 @@ class Home
 
 		$email = $display_name = null;
 		$isConnected = false;
-		
+
 		if($this->isConnected()){
 			$isConnected = true;
 			$email = $_SESSION['user_email'];
@@ -61,7 +61,7 @@ class Home
 		$userData = array('isConnected' => $isConnected, 'email' => $email, 'display_name' => $display_name);
 		$this->smarty->assign('user', $userData);
 	}
-	
+
 	private function isConnected(){
 		return isset($_SESSION['acu_tck_login']);
 	}

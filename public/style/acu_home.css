@@ -12,3 +12,9 @@
 #acu_home_infos_content p {
   margin-bottom: 20px;
 }
+
+#acu_news_content {
+  background-color: lightgrey;
+  text-align: center;
+  line-height: 100px;
+}

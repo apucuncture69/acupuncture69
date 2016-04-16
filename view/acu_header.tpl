@@ -25,15 +25,11 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <!--<img id="header_profile_avatar" src="http://2.gravatar.com/avatar/{$user.email|md5}" alt='Image de profil' />-->
-              <p id="header_profile_username">{$user.display_name}</p>
+              <p id="header_profile_username">{$user.display_name|default:'Anonyme'}</p>
               <span class="caret"></span>
             </a>
             <ul id="header_menu_user" role="menu" class="dropdown-menu">
-              <li role="menuitem">Menu 1</li>
-              <li role="separator" class="divider"></li>
-              <li role="menuitem">Menu 2</li>
-              <li role="separator" class="divider"></li>
-              <li role="menuitem" id="header_deco">Déconnexion</li>
+              <li role="menuitem" id="header_deco"><a href="#">Déconnexion</a></li>
             </ul>
           </li>
           {else}
