@@ -25,29 +25,37 @@ public static  function index()
 		    
 		if($_SERVER['REQUEST_METHOD']=='GET'){
             
-            if (isset($_GET['meridien'])or isset($_GET['type'])){
-                $result = self::FilterByMeridienAndType($_GET['meridien'],$_GET['type']);
+            if (isset($_GET['meridien']) or isset($_GET['type'])){
+                $meridien =$_GET['meridien'];
+                $type =$_GET['type'];
+                $result = self::FilterByMeridienAndType($meridien,$type);
             }
             else {
+                
+                if(isset($_GET['keywords'])){
+                    $keywords = $_GET['keywords'];
+                    $result= self::FindByKeywords($keywords);                                        
+                }
+                else{
                 $result = self::GetPathologies();
+                }
             }
-		} 
     		return $result;
+        }
 
 }    
 
 
 
-/*recherche à l'aide d'un méridien
+/*filtrage à l'aide d'un méridien et du type de pathologie
 URL de filtrage avec pour paramètre le filtre de méridien 'P' et le filtre de type sur 'me' api/pathologies?meridien=P&type=me
 
 */ 
-public static function FilterByMeridienAndType($meridien, $type){
+private static function FilterByMeridienAndType($meridien, $type){
     $result=null;
     self::init();
     $filtre['meridien']='%'.$meridien.'%';
     $filtre['type']    ='%'.$type.'%';
-  
     
     $pathos=self::$_PathologieManager->find($filtre);
     $result=self::ConvertPathologiesToXml($pathos);
@@ -55,6 +63,27 @@ public static function FilterByMeridienAndType($meridien, $type){
 }
 
 
+//recherche par mot clé peut recoitu une chaine de caractère  (mot clé(s))
+//qui sera découpée (si il y a des espaces ) en plusieurs mots clés 
+private static function FindByKeywords($keywords){
+    $result=null;
+    self::init();
+
+    $token = strtok($keywords, " ");
+    $words['keyword']='%'.$token.'%';
+    while ($token !== false)
+    {
+        $result['keyword']='%'.$token.'%';
+        $token = strtok(" ");
+    } 
+ 
+    
+    $pathos=self::$_PathologieManager->find($words);
+    $result=self::ConvertPathologiesToXml($pathos);
+    return $result; 
+}
+
+//récupère toutes les pathologies 
 private static function GetPathologies()
 {       
     $pathos = self::$_PathologieManager->getList();
