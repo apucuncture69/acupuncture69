@@ -17,7 +17,7 @@
     <action>index</action>
   </route>
   <route>
-    <path>/api/pathologies/filtres</path>
+    <path>/api/filtres</path>
     <controller>PathologieService</controller>
     <action>GetFilterData</action>
   </route>
