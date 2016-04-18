@@ -22,21 +22,24 @@ private static function init(){
 public static  function index()
 {
     self::init();
+    $result=null;
 		    
 		if($_SERVER['REQUEST_METHOD']=='GET'){
+            $keywords=null;
+            $meridien=null;
+            $type=null;
+            if (isset($_GET['keywords'])) { $keywords = $_GET['keywords'];}
+            if (isset($_GET['meridien'])) { $meridien = $_GET['meridien']; }
+            if (isset($_GET['type'])) {     $type     = $_GET['type']; }
             
-            if (isset($_GET['meridien']) or isset($_GET['type'])){
-                $meridien =$_GET['meridien'];
-                $type =$_GET['type'];
+              if(isset($keywords)){
+                    $result= self::FindByKeywords($keywords,$meridien,$type);              
+                }
+            else{
+            if (isset($meridien) or isset($type)){
                 $result = self::FilterByMeridienAndType($meridien,$type);
             }
             else {
-                
-                if(isset($_GET['keywords'])){
-                    $keywords = $_GET['keywords'];
-                    $result= self::FindByKeywords($keywords);                                        
-                }
-                else{
                 $result = self::GetPathologies();
                 }
             }
@@ -65,17 +68,20 @@ private static function FilterByMeridienAndType($meridien, $type){
 
 //recherche par mot clé peut recoitu une chaine de caractère  (mot clé(s))
 //qui sera découpée (si il y a des espaces ) en plusieurs mots clés 
-private static function FindByKeywords($keywords){
+private static function FindByKeywords($keywords,$meridien,$type){
     $result=null;
     self::init();
 
     $token = strtok($keywords, " ");
-    $words['keyword']='%'.$token.'%';
     while ($token !== false)
     {
-        $result['keyword']='%'.$token.'%';
+        $arrayOfKeyword[]='%'.$token.'%';
         $token = strtok(" ");
+        
     } 
+    $words['keyword']=$arrayOfKeyword;
+    $words['meridien']='%'.$meridien.'%';
+    $words['type']='%'.$type.'%';
  
     
     $pathos=self::$_PathologieManager->find($words);
