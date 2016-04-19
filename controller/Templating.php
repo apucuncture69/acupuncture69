@@ -22,7 +22,7 @@ class Templating
 			$context = stream_context_create($opts);
 			 
 			$response = file_get_contents(
-			               'http://'.$_SERVER['SERVER_NAME'].'/'.split("/",$_SERVER['REQUEST_URI'])[1].'/'.$_POST['url'], 
+			               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("/",$_SERVER['REQUEST_URI'])[1].'/'.$_POST['url'], 
 			               false, 
 			               $context);
 
