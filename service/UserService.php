@@ -1,5 +1,4 @@
 <?php
-   ini_set('display_errors', 1);
 require_once("config/WebServiceDefine.php");
 require_once(ManagerFolderPath."UsersManager.php");
 require_once(ConnexionFolderPath."Connexion.php");
