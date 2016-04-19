@@ -14,6 +14,10 @@
     </div>
     {/if}
   </div>
+  <div id="words">
+  </div>
+  <div id="pathologies_filter">
+  </div>
 
   <div class="table-responsive-vertical" aria-labelledby="acu_pathologie_title">
     <table id="acu_pathologie_table" class="table table-hover" role="region">
@@ -26,12 +30,11 @@
         </tr>
       </thead>
       <tbody id="pathologies_content" aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
-        <tr>
-          <td colspan="4">
-            <img id="patho_img_loading" src="public/img/loading.gif" alt="Chargement..." aria-describedby="chargement des données"/>
-          </td>
-        </tr>
       </tbody>
     </table>
   </div>
 </article>
+
+<div id="loading">
+  <img class="patho_img_loading" src="public/img/loading.gif" alt="Chargement..." aria-describedby="chargement des données"/>
+</div>
