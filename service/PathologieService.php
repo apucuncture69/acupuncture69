@@ -25,18 +25,18 @@ public static  function index()
     $result=null;
 		    
 		if($_SERVER['REQUEST_METHOD']=='GET'){
-            $keywords=null;
-            $meridien=null;
-            $type=null;
+            $keywords='%';
+            $meridien='%';
+            $type='%';
             if (isset($_GET['keywords'])) { $keywords = $_GET['keywords'];}
             if (isset($_GET['meridien'])) { $meridien = $_GET['meridien']; }
             if (isset($_GET['type'])) {     $type     = $_GET['type']; }
             
-              if(isset($keywords)){
+              if($keywords!='%'){
                     $result= self::FindByKeywords($keywords,$meridien,$type);              
                 }
             else{
-            if (isset($meridien) or isset($type)){
+            if (($meridien!='%') or ( $type!='%')){
                 $result = self::FilterByMeridienAndType($meridien,$type);
             }
             else {
@@ -57,9 +57,8 @@ URL de filtrage avec pour paramètre le filtre de méridien 'P' et le filtre de 
 private static function FilterByMeridienAndType($meridien, $type){
     $result=null;
     self::init();
-    $filtre['meridien']='%'.$meridien.'%';
-    $filtre['type']    ='%'.$type.'%';
-    
+    $filtre['meridien']=$meridien;
+    $filtre['type']    =$type;
     $pathos=self::$_PathologieManager->find($filtre);
     $result=self::ConvertPathologiesToXml($pathos);
     return $result; 
@@ -71,18 +70,18 @@ private static function FilterByMeridienAndType($meridien, $type){
 private static function FindByKeywords($keywords,$meridien,$type){
     $result=null;
     self::init();
+    
 
     $token = strtok($keywords, " ");
     while ($token !== false)
     {
-        $arrayOfKeyword[]='%'.$token.'%';
+        $arrayOfKeyword[]=$token;
         $token = strtok(" ");
         
     } 
     $words['keyword']=$arrayOfKeyword;
-    $words['meridien']='%'.$meridien.'%';
-    $words['type']='%'.$type.'%';
- 
+    $words['meridien']=$meridien;
+    $words['type']=$type;
     
     $pathos=self::$_PathologieManager->find($words);
     $result=self::ConvertPathologiesToXml($pathos);
