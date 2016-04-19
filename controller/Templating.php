@@ -22,7 +22,7 @@ class Templating
 			$context = stream_context_create($opts);
 			 
 			$response = file_get_contents(
-			               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'], 
+			               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'].$_POST['filters'], 
 			               false, 
 			               $context);
 
