@@ -3,7 +3,7 @@
 
   <route>
     <path>/api/user</path>
-    <controller>User</controller>
+    <controller>UserService</controller>
     <action>index</action>
   </route>
   <route>
