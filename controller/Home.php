@@ -32,13 +32,9 @@ class Home
 	}
 
 	public function pathologies() {
-		if($this->isConnected()){
-			$this->initSessionVariables();
-			$this->smarty->assign("module_name", "acu_pathologies");
-			$this->smarty->display("view/acu_main.tpl");
-		} else {
-			header('Location: login-pathologies');
-		}
+		$this->initSessionVariables();
+		$this->smarty->assign("module_name", "acu_pathologies");
+		$this->smarty->display("view/acu_main.tpl");
 	}
 
 	public function infos() {
