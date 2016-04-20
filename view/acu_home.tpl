@@ -19,14 +19,3 @@
     Flux RSS
   </div>
 </article>
-
-<!-- Pathologies search tile -->
-<article class="acu_tile">
-  <h1 id="acu_home_search_title">Chercher une pathologie</h1>
-  <div class="acu_search_view" aria-labelledby="acu_home_search_title">
-    <input type="search" placeholder="Pathologie..." class="acu_search_input" title="Chercher une pathologie"/>
-    <button class="acu_search_btn">
-      <span class="acu_search_img"></span>
-    </button>
-  </div>
-</article>
