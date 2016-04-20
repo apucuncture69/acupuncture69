@@ -21,10 +21,17 @@ class Templating
 			);
 			$context = stream_context_create($opts);
 			 
-			$response = file_get_contents(
-			               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'].$_POST['filters'], 
-			               false, 
-			               $context);
+			if(isset($_POST['filters'])){
+				$response = file_get_contents(
+				               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'].$_POST['filters'], 
+				               false, 
+				               $context);
+			} else {
+				$response = file_get_contents(
+				               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'], 
+				               false, 
+				               $context);
+			}
 
 			$response = preg_replace('/<\?xml.*\?>/i','',$response);
 
