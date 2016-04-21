@@ -1,6 +1,6 @@
 <article class="acu_tile">
 	<h1 id="acu_login_title">Connexion</h1>
-	<form id="login_form" aria-labelledby="acu_login_title">
+	<form id="login_form" aria-labelledby="acu_login_title" action="?#">
 		<div class="form-group">
 			<label class="elt_form" for="login_email">Email:</label>
 			<input class="form-control elt_form" id="login_email" type="text" placeholder="Email" aria-required="true"/>
