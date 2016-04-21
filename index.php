@@ -54,13 +54,15 @@
 			foreach ($fsplit as $fbloc) {
 				if(preg_match($param_regex, $fbloc)){
 					$idfbloc = $idfbloc_tmp;
-					$lsplit = explode($lchar, $fbloc);
-					$idlbloc_tmp=0;
-					foreach ($lsplit as $lbloc) {
-						if(preg_match($param_regex, $lbloc)){
-							$idlbloc = $idlbloc_tmp;
+					if($lchar!=null){
+						$lsplit = explode($lchar, $fbloc);
+						$idlbloc_tmp=0;
+						foreach ($lsplit as $lbloc) {
+							if(preg_match($param_regex, $lbloc)){
+								$idlbloc = $idlbloc_tmp;
+							}
+							$idlbloc_tmp = $idlbloc_tmp+1;
 						}
-						$idlbloc_tmp = $idlbloc_tmp+1;
 					}
 				}
 				$idfbloc_tmp = $idfbloc_tmp+1;
