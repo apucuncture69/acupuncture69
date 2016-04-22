@@ -4,7 +4,7 @@
 
   <div id="acu_search_patho" class="acu_search_view" aria-labelledby="acu_pathologie_title">
     {if $user.isConnected eq true}
-    <input id="search" type="search" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table" title="Chercher une pathologie"/>
+    <input id="search" type="search" maxlength="20" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table" title="Chercher une pathologie"/>
     <button class="acu_search_btn">
       <span class="acu_search_img"></span>
     </button>
