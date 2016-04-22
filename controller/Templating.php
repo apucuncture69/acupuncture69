@@ -23,12 +23,12 @@ class Templating
 			 
 			if(isset($_POST['filters'])){
 				$response = file_get_contents(
-				               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'].$_POST['filters'], 
+				               'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'].$_POST['filters'], 
 				               false, 
 				               $context);
 			} else {
 				$response = file_get_contents(
-				               'http://'.$_SERVER['SERVER_NAME'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'], 
+				               'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/'.explode("templating",$_SERVER['REQUEST_URI'])[0].'/'.$_POST['url'], 
 				               false, 
 				               $context);
 			}
