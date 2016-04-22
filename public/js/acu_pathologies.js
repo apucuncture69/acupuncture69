@@ -63,6 +63,13 @@ $( document ).ready(function() {
 	    	$('#search').focus();
 	    }
 	});
+
+	$('#search').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('.acu_search_btn').click();
+		}
+	});
 });
 
 function addCloseAction(){
