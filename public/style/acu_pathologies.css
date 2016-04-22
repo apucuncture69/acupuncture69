@@ -24,6 +24,10 @@
   padding: 10px;
 }
 
+#pathologies_filter{
+  margin-bottom: 15px;
+}
+
 #loading{
   display: none;
 }
