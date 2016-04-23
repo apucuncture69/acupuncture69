@@ -26,7 +26,7 @@
           <th>Type</th>
           <th>Méridien</th>
           <th>Description</th>
-          <th>Symptomes</th>
+          <th>Symptômes</th>
         </tr>
       </thead>
       <tbody id="pathologies_content" aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
