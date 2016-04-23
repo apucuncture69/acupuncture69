@@ -1,6 +1,6 @@
 <!-- Pathologies tile -->
 <article class="acu_tile">
-  <h1 id="acu_pathologie_title">Chercher une pathologie</h1>
+  <h1 id="acu_pathologie_title">Pathologies</h1>
 
   <div id="acu_search_patho" class="acu_search_view" aria-labelledby="acu_pathologie_title">
     {if $user.isConnected eq true}
