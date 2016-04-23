@@ -2,29 +2,26 @@
 
 class Connexion
 {
-    private static $_connexion;
-    
-    /* @throws PDOException */
-    public static function getConnexion()
-    {
-        if (!isset(self::$_connexion)) 
-        {
-            self::$_connexion = self::getPDOObject(); 
-        }
-        
-        return self::$_connexion;
-    }
+  private static $_connexion;
 
-    private static function getPDOObject()
+  /* @throws PDOException */
+  public static function getConnexion()
+  {
+    if (!isset(self::$_connexion))
     {
-	$host = 'localhost';
-        $base = 'acu';
-        $user = 'root';
-        $pass = 'root';
-        
-        return new PDO("mysql:host=$host;dbname=$base", $user, $pass);
+      self::$_connexion = self::getPDOObject();
     }
+    return self::$_connexion;
+  }
 
-    
-    
+  private static function getPDOObject()
+  {
+    $host = 'localhost';
+    $base = 'acu';
+    $user = 'root';
+    $pass = 'root';
+
+    return new PDO("mysql:host=$host;dbname=$base", $user, $pass);
+  }
 }
+?>
