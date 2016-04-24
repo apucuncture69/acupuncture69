@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./">
+        <a class="navbar-brand" href="./" tabindex="-1">
           <img id="img_logo_site" src="public/img/ic_logo.png" alt="Acupuncture logo" />
         </a>
       </div>
