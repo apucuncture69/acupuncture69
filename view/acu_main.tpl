@@ -12,7 +12,9 @@
   <link rel="stylesheet" type="text/css" href="public/style/main_style.css" media="screen">
   <link rel="stylesheet" type="text/css" href="public/style/main_style_print.css" media="print">
   <link rel="stylesheet" type="text/css" href="public/style/main_style_small_device.css" media="screen and (max-width: 1280px)">
-  <link rel="stylesheet" type="text/css" href="public/style/{$module_name}.css">
+  {foreach from=$module_name item=module}
+    <link rel="stylesheet" type="text/css" href="public/style/{$module}.css">
+  {/foreach}
 </head>
 
 <body>
@@ -20,7 +22,9 @@
   <div id="main_content" role="main">
     <div id="main_content_top"></div>
     <div id="main_content_tiles">
-      {include file="view/$module_name.tpl"}
+    {foreach from=$module_name item=module}
+        {include file="view/$module.tpl"}
+    {/foreach}
     </div>
   </div>
 
@@ -33,7 +37,9 @@
   <script src="public/js/sha256/scripts/qunit.js" type="text/javascript"></script>
   <script src="public/js/sha256/scripts/sha256.jquery.debug.js" type="text/javascript"></script>
   <script src="public/js/acu_main.js" type="text/javascript"></script>
-  <script src="public/js/{$module_name}.js" type="text/javascript"></script>
+  {foreach from=$module_name item=module}
+    <script src="public/js/{$module}.js" type="text/javascript"></script>
+  {/foreach}
 </body>
 
 </html>
