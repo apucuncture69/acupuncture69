@@ -49,14 +49,23 @@ $( document ).ready(function() {
 
 	$('.acu_search_btn').click(function(){
 		if($('#search').val()!=''){
-			var keyword_html = 	 '<div class="keyword" value="'+$('#search').val()+'">'
-								+'<div class="keyword_txt">'
-								+$('#search').val()
-								+'</div>'
-								+'<div class="keyword_btn"></div>'
-								+'</div>';
+			var keyword_value = $('#search').val();
+			var reg=new RegExp("\\s+", "g");
+			var keyword_values = keyword_value.split(reg);
+			
+			for (var i=0; i<keyword_values.length; i++) {
+				if(keyword_values[i] != ''){
+					var keyword_html = 	 '<div class="keyword" value="'+$('#search').val()+'">'
+													+'<div class="keyword_txt">'
+													+keyword_values[i]
+													+'</div>'
+													+'<div class="keyword_btn"></div>'
+													+'</div>';
 
-	    	$('#words').append(keyword_html);
+					$('#words').append(keyword_html);
+				}
+			}
+			
 	    	$('#search').val('');
 	    	maj();
 	    } else {
