@@ -12,7 +12,12 @@ class Home
 
 	public function home() {
 		$this->initSessionVariables();
-		$this->smarty->assign("module_name", "acu_home");
+		if($this->isConnected()){
+			$modules = array('acu_home');
+		} else {
+			$modules = array('acu_login','acu_home');
+		}
+		$this->smarty->assign("module_name", $modules);
 		$this->smarty->display("view/acu_main.tpl");
 	}
 
@@ -26,20 +31,23 @@ class Home
 			} else {
 				$this->smarty->assign('redirect_page', 'home');
 			}
-			$this->smarty->assign("module_name", "acu_login");
+			$modules = array('acu_login');
+			$this->smarty->assign("module_name", $modules);
 			$this->smarty->display("view/acu_main.tpl");
 		}
 	}
 
 	public function pathologies() {
 		$this->initSessionVariables();
-		$this->smarty->assign("module_name", "acu_pathologies");
+		$modules = array('acu_pathologies');
+		$this->smarty->assign("module_name", $modules);
 		$this->smarty->display("view/acu_main.tpl");
 	}
 
 	public function infos() {
 		$this->initSessionVariables();
-		$this->smarty->assign("module_name", "acu_infos");
+		$modules = array('acu_infos');
+		$this->smarty->assign("module_name", $modules);
 		$this->smarty->display("view/acu_main.tpl");
 	}
 
