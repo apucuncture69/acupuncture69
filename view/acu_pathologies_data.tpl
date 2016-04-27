@@ -18,7 +18,11 @@
         </tr>
         <tr>
           <td class="tab_elt_sec">
-            Yin: {$meridien->yin}
+            {if $meridien->yin eq 1}
+            Yin
+            {else}
+            Yang
+            {/if}
           </td>
         </tr>
       {/foreach}
