@@ -27,7 +27,7 @@ $( document ).ready(function() {
 			        	$('#login_email').addClass( 'elt_form_err' );
 			        	$('#login_password').addClass( 'elt_form_err' );
 			        	$('#login_password').val('');
-			        	$('#login_error').html('Mauvais identifiants.');
+			        	$('#login_error').html('Vos identifiants ne correspondent à aucun utilisateur enregistré.');
 			        }
 			    },
 			    error: function(result) {
@@ -41,6 +41,8 @@ $( document ).ready(function() {
 			if($('#login_password').val().length <= 0 || $('#login_password').hasClass('elt_form_err')){
 				$('#login_password').addClass( 'elt_form_err' );
 			}
+	        	$('#login_password').val('');
+	        	$('#login_error').html('Email invalide et/ou mot de passe trop petit.');
 		}
 		
 	});
