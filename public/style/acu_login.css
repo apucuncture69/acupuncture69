@@ -1,9 +1,10 @@
-
-
 .elt_form_err {
 	background-color: #FFC0CB;
 }
 
+#login_error {
+	color: red;
+}
 
 #login_form{
 	margin-right: auto;
