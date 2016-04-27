@@ -16,6 +16,7 @@ class Home
 			$modules = array('acu_home');
 		} else {
 			$modules = array('acu_login','acu_home');
+			$this->smarty->assign('redirect_page', 'home');
 		}
 		$this->smarty->assign("module_name", $modules);
 		$this->smarty->display("view/acu_main.tpl");
