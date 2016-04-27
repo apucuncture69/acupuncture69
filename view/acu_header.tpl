@@ -15,15 +15,15 @@
 
       <div class="collapse navbar-collapse" id="header_navigation_collapse">
         <ul id="header_navigation_items" class="nav navbar-nav">
-          <li class="{if $module_name eq 'acu_home'}active{/if}"><a href="./">Accueil</a></li>
-          <li class="{if $module_name eq 'acu_pathologies'}active{/if}"><a href="pathologies">Pathologies</a></li>
-          <li class="{if $module_name eq 'acu_infos'}active{/if}"><a href="infos">Infos</a></li>
+          <li class="{if $module_name eq 'acu_home'}active{/if}"><a href="./" tabindex="10" accesskey="1">Accueil</a></li>
+          <li class="{if $module_name eq 'acu_pathologies'}active{/if}"><a href="pathologies" tabindex="20" accesskey="2">Pathologies</a></li>
+          <li class="{if $module_name eq 'acu_infos'}active{/if}"><a href="infos" tabindex="30" accesskey="3">Infos</a></li>
         </ul>
 
         <ul id="header_profile" class="nav navbar-nav navbar-right">
           {if $user.isConnected eq true}
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" tabindex="40">
               <!--<img id="header_profile_avatar" src="http://2.gravatar.com/avatar/{$user.email|md5}" alt='Image de profil' />-->
               <p id="header_profile_username">{$user.display_name|default:'Anonyme'}</p>
               <span class="caret"></span>
@@ -34,7 +34,7 @@
           </li>
           {else}
           <li>
-            <a href="login">
+            <a href="login" tabindex="40">
               <p id="header_profile_username">Se connecter</p>
             </a>
           </li>
