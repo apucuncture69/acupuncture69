@@ -26,6 +26,8 @@ $( document ).ready(function() {
 			        } else {
 			        	$('#login_email').addClass( 'elt_form_err' );
 			        	$('#login_password').addClass( 'elt_form_err' );
+			        	$('#login_password').val('');
+			        	$('#login_error').html('Mauvais identifiants.');
 			        }
 			    },
 			    error: function(result) {
@@ -56,6 +58,20 @@ $( document ).ready(function() {
 			$('#login_password').addClass( 'elt_form_err' );
 		} else {
 			$('#login_password').removeClass( 'elt_form_err' );
+		}
+	});
+
+	$('#login_email').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#login_submit').click();
+		}
+	});
+
+	$('#login_password').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#login_submit').click();
 		}
 	});
 
