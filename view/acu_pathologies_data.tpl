@@ -32,7 +32,7 @@
       {$pathologie->description}
     </td>
     <td>
-      <table>
+      <table class="patho_symptome_cell">
       {foreach from=$pathologie->symptomes->symptome item=symptome}
         <tr>
           <td class="tab_elt_pri">
