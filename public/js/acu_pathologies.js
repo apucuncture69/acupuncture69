@@ -79,6 +79,13 @@ $( document ).ready(function() {
 			$('.acu_search_btn').click();
 		}
 	});
+
+	$('#patho_button_search').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#patho_button_search').click();
+		}
+	});
 });
 
 function addCloseAction(){
