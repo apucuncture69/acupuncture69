@@ -1,30 +1,53 @@
-<!-- Equipe tile -->
-<article class="acu_tile" id="acu_infos_team">
-  <h1 id="acu_infos_team_title">Mon profil</h1>
-  <form>
-    <div class="row">
-      <label for="profil_prenom">Prénom:</label>
-      <input name="profil_prenom" id="profil_prenom" type="text" value="{$profil_first}" tabindex="1"/>
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header_navigation_collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./" tabindex="-1">
+          <img id="img_logo_site" src="public/img/ic_logo.png" alt="Acupuncture logo" />
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="header_navigation_collapse">
+        <ul id="header_navigation_items" class="nav navbar-nav">
+          <li class="{if $module_name eq 'acu_home'}active{/if}"><a href="./" tabindex="10" accesskey="1">Accueil</a></li>
+          <li class="{if $module_name eq 'acu_pathologies'}active{/if}"><a href="pathologies" tabindex="20" accesskey="2">Pathologies</a></li>
+          <li class="{if $module_name eq 'acu_infos'}active{/if}"><a href="infos" tabindex="30" accesskey="3">Infos</a></li>
+        </ul>
+
+        <ul id="header_profile" class="nav navbar-nav navbar-right">
+          {if $user.isConnected eq true}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" tabindex="40">
+              <!--<img id="header_profile_avatar" src="http://2.gravatar.com/avatar/{$user.email|md5}" alt='Image de profil' />-->
+              <p id="header_profile_username">{$user.display_name|default:'Anonyme'}</p>
+              <span class="caret"></span>
+            </a>
+            <ul id="header_menu_user" role="menu" class="dropdown-menu">
+              <li role="menuitem"><a href="profil">Mon profil</a></li>
+              <li role="menuitem" id="header_deco"><a href="#">Déconnexion</a></li>
+            </ul>
+          </li>
+          {else}
+          <li>
+            <a href="login" tabindex="40">
+              <p id="header_profile_username">Se connecter</p>
+            </a>
+          </li>
+          <li>
+            <a href="signup" tabindex="50">
+              <p class="header_button">S'inscrire</p>
+            </a>
+          </li>
+          {/if}
+        </ul>
+      </div>
     </div>
-    <div class="row">
-      <label for="profil_nom">Nom:</label>
-      <input name="profil_nom" id="profil_nom" type="text" value="{$profil_last}" tabindex="2"/>
-    </div>
-    <div class="row">
-      <label for="profil_email">Email:</label>
-      <ouput name="profil_email" id="profil_email">{$profil_email}</output>
-    </div>
-    <div class="row">
-      <label for="profil_mdp">Mot de passe:</label>
-      <input name="profil_mdp" id="profil_mdp" type="password" placeholder="••••••••••" value="" tabindex="3"/>
-      <label for="profil_newmdp">Nouveau mot de passe:</label>
-      <input name="profil_newmdp" id="profil_newmdp" type="password" placeholder="••••••••••" value="" tabindex="4"/>
-    </div>
-  </form>
-  <div id="profil_error">
-    {if $profil_saved eq '1'}
-      Modifications enregistrées.
-    {/if}
-  </div>
-  <button id="profil_submit" tabindex="5">Modifier</button>
-</article>
+  </nav>
+
+</header>
