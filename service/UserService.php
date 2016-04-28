@@ -36,17 +36,20 @@ class UserService
 		$b = false;
                 parse_str(file_get_contents("php://input"),$post_vars);
                 if ($post_vars['password'] != '' && $post_vars['password'] == $post_vars['password_again'] && $post_vars['email'] != '' && $post_vars['firstname'] != '' && $post_vars['lastname'] != '') {
-                        $user = new User();
-                        $user->setEmail($post_vars['email']);
-                        $user->setFirstName($post_vars['firstname']);
-                        $user->setHashPwd($post_vars['password']);
-                        $user->setLastName($post_vars['lastname']);
-                        
+                    $user = new User();
+                    $user->setEmail($post_vars['email']);
+                    $user->setFirstName($post_vars['firstname']);
+                    $user->setHashPwd($post_vars['password']);
+                    $user->setLastName($post_vars['lastname']);
+                    
+                    $b = self::$_UserManager->add($user);
+
+                    if ($b)
+                    {
                         $_SESSION['acu_tck_login']='OK';
-			$_SESSION['user_email']=$user->getEmail();
-			$_SESSION['user_display_name']=$user->getFirstName().' '.$user->getLastName();
-                        
-                        $b = self::$_UserManager->add($user);
+                        $_SESSION['user_email']=$user->getEmail();
+                        $_SESSION['user_display_name']=$user->getFirstName().' '.$user->getLastName();
+                    }
 		}
                 else
                 {
