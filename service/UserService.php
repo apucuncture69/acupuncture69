@@ -3,20 +3,16 @@ require_once("config/WebServiceDefine.php");
 require_once(ManagerFolderPath."UsersManager.php");
 require_once(ConnexionFolderPath."Connexion.php");
 require_once(UserFolderPath."User.php");
-
 require("libs/Smarty.class.php");
-
 class UserService
 {
 	private $smarty;
 	private static $_UserManager;
-
 	public function __construct() {
 		$this->smarty = new Smarty();
 		$connexion=new Connexion();
     	self::$_UserManager= new  UsersManager($connexion->getConnexion());
 	}
-
 	public function index() {
 		$r = false;
 		if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -30,22 +26,20 @@ class UserService
 		}
 		return $r;
 	}
-
 	// Inscription utilisateur
 	private function post() {
 		$b = false;
-                parse_str(file_get_contents("php://input"),$post_vars);
 				
-				if (isset($post_vars['nom'])) { 
-                 $nom = htmlentities($post_vars['nom'],ENT_QUOTES);}
-				if (isset($post_vars['prenom'])) { 
-                 $prenom = htmlentities($post_vars['prenom'],ENT_QUOTES);}
-				if (isset($post_vars['password_again'])) { 
-                 $password_again = htmlentities($post_vars['password_again'],ENT_QUOTES);}
-				if (isset($post_vars['password'])) { 
-                 $password = htmlentities($post_vars['password'],ENT_QUOTES);}
-				 if (isset($post_vars['email'])) { 
-                 $email = htmlentities($post_vars['email'],ENT_QUOTES);}
+				if (isset($_POST['nom'])) { 
+                 $nom = htmlentities($_POST['nom'],ENT_QUOTES);}
+				if (isset($_POST['prenom'])) { 
+                 $prenom = htmlentities($_POST['prenom'],ENT_QUOTES);}
+				if (isset($_POST['password_again'])) { 
+                 $password_again = htmlentities($_POST['password_again'],ENT_QUOTES);}
+				if (isset($_POST['password'])) { 
+                 $password = htmlentities($_POST['password'],ENT_QUOTES);}
+				 if (isset($_POST['email'])) { 
+                 $email = htmlentities($_POST['email'],ENT_QUOTES);}
 				
                 if ($password != '' && $password == $password_again && $email != '' && $prenom != '' && $nom != '') {
                     $user = new User();
@@ -55,7 +49,6 @@ class UserService
                         $user->setLastName($nom);
                     
                     $b = self::$_UserManager->add($user);
-
                     if ($b)
                     {
                         $_SESSION['acu_tck_login']='OK';
@@ -69,7 +62,6 @@ class UserService
                 }
 		return $b;
 	}
-
 	// Connexion utilisateur
 	private function get() {
 		if (isset($_GET['email'])) { 
@@ -89,7 +81,6 @@ class UserService
 		}
 		return $b;
 	}
-
 	// Modif utilisateur
 	private function put() {
 		$r = self::$_UserManager->get($_SESSION['user_email']);
@@ -122,7 +113,6 @@ class UserService
 		}
 		return $b;
 	}
-
 	// Deconnexion utilisateur
 	private function delete() {
 		$b=false;
