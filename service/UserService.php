@@ -31,26 +31,8 @@ class UserService
 		return $r;
 	}
 
-	// Connexion utilisateur
+	// Inscription utilisateur
 	private function post() {
-		$r = self::$_UserManager->get($_POST['email']);
-		$b = false;
-		if($r->getHashPwd() == $_POST['password']){
-			$_SESSION['acu_tck_login']='OK';
-			$_SESSION['user_email']=$r->getEmail();
-			$_SESSION['user_display_name']=$r->getFirstName().' '.$r->getLastName();
-			$b=true;
-		}
-		return $b;
-	}
-
-	// Infos utilisateur
-	private function get() {
-		return null;
-	}
-
-	// Modif utilisateur
-	private function put() {
 		$b = false;
                 parse_str(file_get_contents("php://input"),$post_vars);
                 if ($post_vars['password'] != '' && $post_vars['password'] == $post_vars['password_again'] && $post_vars['email'] != '' && $post_vars['firstname'] != '' && $post_vars['lastname'] != '') {
@@ -70,6 +52,45 @@ class UserService
                 {
                     $b = false;
                 }
+		return $b;
+	}
+
+	// Connexion utilisateur
+	private function get() {
+		$r = self::$_UserManager->get($_GET['email']);
+		$b = false;
+		if($r->getHashPwd() == $_GET['password']){
+			$_SESSION['acu_tck_login']='OK';
+			$_SESSION['user_email']=$r->getEmail();
+			$_SESSION['user_first']=$r->getFirstName();
+			$_SESSION['user_last']=$r->getLastName();
+			$_SESSION['user_display_name']=$r->getFirstName().' '.$r->getLastName();
+			$b=true;
+		}
+		return $b;
+	}
+
+	// Modif utilisateur
+	private function put() {
+		$r = self::$_UserManager->get($_SESSION['user_email']);
+		$b = false;
+        parse_str(file_get_contents("php://input"),$post_vars);
+		if('' == $post_vars['newpassword']){
+			$r->setFirstName($post_vars['prenom']);
+			$r->setLastName($post_vars['nom']);
+			$b=true;
+		} else if('' != $post_vars['newpassword'] && $r->getHashPwd() == $post_vars['password']){
+			$r->setFirstName($post_vars['prenom']);
+			$r->setLastName($post_vars['nom']);
+			$r->setHashPwd($post_vars['newpassword']);
+			$b=true;
+		}
+		if($b){
+			self::$_UserManager->update($r);
+			$_SESSION['user_first']=$r->getFirstName();
+			$_SESSION['user_last']=$r->getLastName();
+			$_SESSION['user_display_name']=$r->getFirstName().' '.$r->getLastName();
+		}
 		return $b;
 	}
 
