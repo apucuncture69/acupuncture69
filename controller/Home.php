@@ -37,6 +37,17 @@ class Home
 			$this->smarty->display("view/acu_main.tpl");
 		}
 	}
+	
+	public function signup($param) {
+		$this->initSessionVariables();
+                if(isset($param['redirect_page'])){
+                        $this->smarty->assign('redirect_page', $param['redirect_page']);
+                } else {
+                        $this->smarty->assign('redirect_page', 'home');
+                }
+		$this->smarty->assign("module_name", "acu_signup");
+		$this->smarty->display("view/acu_main.tpl");
+	}
 
 	public function pathologies() {
 		$this->initSessionVariables();
