@@ -52,7 +52,7 @@ p {
   border-radius: 50% 50% 50% 50%;
 }
 
-#header_profile_username {
+.header_button {
   display: inline-block;
   color: white;
 }
@@ -167,4 +167,20 @@ p {
   -webkit-font-smoothing: antialiased;
   content: "\e003"; /* Icone de recherche - Loupe */
 }
+
+
+
+.elt_form_err {
+	background-color: #FFC0CB;
+}
+
+
+#login_form{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5%;
+	margin-bottom: 10%;
+	width: 200px;
+}
+
 /* ENDOF SEARCH VIEW STYLE */
