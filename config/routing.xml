@@ -45,6 +45,13 @@
   </route>
   
    <route>
+    <path>/profil{saved}</path>
+    <controller>Home</controller>
+    <action>profil</action>
+    <saved>(-saved|)</saved>
+  </route>
+  
+   <route>
     <path>/signup</path>
     <controller>Home</controller>
     <action>signup</action>
