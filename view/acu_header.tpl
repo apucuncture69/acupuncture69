@@ -39,8 +39,8 @@
             </a>
           </li>
           <li>
-            <a href="signup">
-              <p class="header_button" tabindex="50">S'inscrire</p>
+            <a href="signup" tabindex="50">
+              <p class="header_button">S'inscrire</p>
             </a>
           </li>
           {/if}
