@@ -29,6 +29,7 @@
               <span class="caret"></span>
             </a>
             <ul id="header_menu_user" role="menu" class="dropdown-menu">
+              <li role="menuitem"><a href="profil">Mon profil</a></li>
               <li role="menuitem" id="header_deco"><a href="#">Déconnexion</a></li>
             </ul>
           </li>
