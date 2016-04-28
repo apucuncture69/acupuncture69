@@ -64,18 +64,22 @@ class Home
 	}
 
 	public function profil($param) {
-		$this->initSessionVariables();
-		$modules = array('acu_profil');
-		$this->smarty->assign("module_name", $modules);
-		$this->smarty->assign("profil_first", $_SESSION['user_first']);
-		$this->smarty->assign("profil_last", $_SESSION['user_last']);
-		$this->smarty->assign("profil_email", $_SESSION['user_email']);
-		if($param['saved']==''){
-			$this->smarty->assign("profil_saved", '0');
+		if($this->isConnected()){
+			$this->initSessionVariables();
+			$modules = array('acu_profil');
+			$this->smarty->assign("module_name", $modules);
+			$this->smarty->assign("profil_first", $_SESSION['user_first']);
+			$this->smarty->assign("profil_last", $_SESSION['user_last']);
+			$this->smarty->assign("profil_email", $_SESSION['user_email']);
+			if($param['saved']==''){
+				$this->smarty->assign("profil_saved", '0');
+			} else {
+				$this->smarty->assign("profil_saved", '1');
+			}
+			$this->smarty->display("view/acu_main.tpl");
 		} else {
-			$this->smarty->assign("profil_saved", '1');
+			header('Location: 404');
 		}
-		$this->smarty->display("view/acu_main.tpl");
 	}
 
 	public function initSessionVariables() {
