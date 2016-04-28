@@ -12,7 +12,7 @@
     </div>
     <div class="row">
       <label for="profil_email">Email:</label>
-      <ouput name="profil_email" id="profil_email">{$profil_email}</output>
+      <output name="profil_email" id="profil_email">{$profil_email}</output>
     </div>
     <div class="row">
       <label for="profil_mdp">Mot de passe:</label>

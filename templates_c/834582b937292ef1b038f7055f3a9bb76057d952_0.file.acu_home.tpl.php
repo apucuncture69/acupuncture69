@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-25 22:23:31
+/* Smarty version 3.1.28, created on 2016-04-28 16:40:58
   from "C:\Program Files\wamp\www\acupuncture\view\acu_home.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f5ac53f129f9_72393716',
+  'unifunc' => 'content_572220fa6280e3_23416057',
   'file_dependency' => 
   array (
     '834582b937292ef1b038f7055f3a9bb76057d952' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_home.tpl',
-      1 => 1458940943,
+      1 => 1461854349,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f5ac53f129f9_72393716 ($_smarty_tpl) {
+function content_572220fa6280e3_23416057 ($_smarty_tpl) {
 ?>
 <!-- Definition tile -->
 <article class="acu_tile">
@@ -35,14 +35,11 @@ function content_56f5ac53f129f9_72393716 ($_smarty_tpl) {
   </div>
 </article>
 
-<!-- Pathologies search tile -->
+<!-- Flux RSS -->
 <article class="acu_tile">
-  <h1 id="acu_home_search_title">Chercher une pathologie</h1>
-  <div class="acu_search_view" aria-labelledby="acu_home_search_title">
-    <input type="search" placeholder="Pathologie..." class="acu_search_input" title="Chercher une pathologie"/>
-    <button class="acu_search_btn">
-      <span class="acu_search_img"></span>
-    </button>
+  <h1 id="acu_home_news_title">Actualités</h1>
+  <div id="acu_news_content" aria-labelledby="acu_home_news_title">
+    Flux RSS
   </div>
 </article>
 <?php }

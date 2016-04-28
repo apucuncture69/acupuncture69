@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-03-25 22:28:43
+/* Smarty version 3.1.28, created on 2016-04-28 16:41:00
   from "C:\Program Files\wamp\www\acupuncture\view\acu_pathologies.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_56f5ad8b276c16_41149431',
+  'unifunc' => 'content_572220fcb6f390_54660613',
   'file_dependency' => 
   array (
     'cc029412821b97c1d49596ced368a6ce95ee893f' => 
     array (
       0 => 'C:\\Program Files\\wamp\\www\\acupuncture\\view\\acu_pathologies.tpl',
-      1 => 1458941001,
+      1 => 1461854349,
       2 => 'file',
     ),
   ),
@@ -19,17 +19,27 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56f5ad8b276c16_41149431 ($_smarty_tpl) {
+function content_572220fcb6f390_54660613 ($_smarty_tpl) {
 ?>
 <!-- Pathologies tile -->
 <article class="acu_tile">
-  <h1 id="acu_pathologie_title">Chercher une pathologie</h1>
+  <h1 id="acu_pathologie_title">Pathologies</h1>
 
   <div id="acu_search_patho" class="acu_search_view" aria-labelledby="acu_pathologie_title">
-    <input type="search" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table" title="Chercher une pathologie"/>
+    <?php if ($_smarty_tpl->tpl_vars['user']->value['isConnected'] == true) {?>
+    <input id="search" type="search" maxlength="20" placeholder="Pathologie..." class="acu_search_input" aria-controls="acu_pathologie_table" title="Chercher une pathologie" tabindex="31"/>
     <button class="acu_search_btn">
       <span class="acu_search_img"></span>
     </button>
+    <?php } else { ?>
+    <div id="patho_button_search" tabindex="31">
+      Rechercher
+    </div>
+    <?php }?>
+  </div>
+  <div id="words">
+  </div>
+  <div id="pathologies_filter">
   </div>
 
   <div class="table-responsive-vertical" aria-labelledby="acu_pathologie_title">
@@ -37,39 +47,19 @@ function content_56f5ad8b276c16_41149431 ($_smarty_tpl) {
       <thead>
         <tr>
           <th>Type</th>
-          <th>Meridien</th>
+          <th>Méridien</th>
           <th>Description</th>
-          <th>Symptomes</th>
+          <th>Symptômes</th>
         </tr>
       </thead>
-      <tbody aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
-        <tr>
-          <td data-title="Type">Crampe</td>
-          <td data-title="Meridien">Bras</td>
-          <td data-title="Description">Grosse crampe qui fait bien mal</td>
-          <td data-title="Symptomes">Contraction subite des muscles</td>
-        </tr>
+      <tbody id="pathologies_content" aria-live="polite" aria-atomic="true" aria-relevant="additions removals">
       </tbody>
     </table>
   </div>
 </article>
+
+<div id="loading">
+  <img class="patho_img_loading" src="public/img/loading.gif" alt="Chargement..." aria-describedby="chargement des données"/>
+</div>
 <?php }
 }

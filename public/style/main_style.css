@@ -45,6 +45,10 @@ p {
   color: white;
 }
 
+#header_profile_username {
+  display: inline-block;
+}
+
 #header_profile_avatar {
   height: 40px;
   width: 40px;
