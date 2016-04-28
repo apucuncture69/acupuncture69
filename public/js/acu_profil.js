@@ -33,4 +33,32 @@ $( document ).ready(function() {
 			});
 	});
 
+	$('#profil_prenom').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#profil_submit').click();
+		}
+	});
+
+	$('#profil_nom').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#profil_submit').click();
+		}
+	});
+
+	$('#profil_mdp').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#profil_submit').click();
+		}
+	});
+
+	$('#profil_newmdp').keypress(function (e) {
+		var key = e.which;
+		if(key == 13) {
+			$('#profil_submit').click();
+		}
+	});
+
 });
