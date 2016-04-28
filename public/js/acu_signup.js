@@ -15,7 +15,7 @@ $(document).ready(function () {
                 && $('#signup_password').val().length > 0 && valid_password && valid_password_again) {     //si tout est bon
             $.ajax({
                 url: 'api/user',
-                type: 'PUT',
+                type: 'POST',
                 data: {
                     email: $('#signup_email').val(),
                     password: $.sha256($('#signup_password').val() + $.sha256($('#signup_email').val())),
