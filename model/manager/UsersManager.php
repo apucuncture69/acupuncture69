@@ -91,7 +91,8 @@ class UsersManager
 	/* Ajout d'un utilisateur */
 
 	/*  @throws PDOException
-	    @param $user : user.User */
+	    @param $user : user.User
+         *  @return boolean         */
 	public function add($user)
 	{
 		$q_ins = $this->_db->prepare("INSERT INTO user VALUES(:email,:hashpwd,:firstname,:lastname)");
@@ -101,10 +102,12 @@ class UsersManager
 		$q_ins->bindValue(':firstname',$user->getFirstname(), PDO::PARAM_STR);
 		$q_ins->bindValue(':lastname',$user->getLastname(),PDO::PARAM_STR);
 	
-		$q_ins->execute();	
+		$b = $q_ins->execute();	
 		
 		$userKeysManager = new UserKeysManager($this->_db);
 		$userKeysManager->addOrUpdateorDeleteKeys($user);
+                
+                return $b;
 	}
 
 	private function _getUserFromLine($ligne)
