@@ -14,6 +14,9 @@
         </form>
         <div id="login_error"></div>
         <button id="login_submit" class="btn btn-default" tabindex="7">Connexion</button>
+        <div>
+            <a href="signup" tabindex="8">S'inscrire</a>
+        </div>
     </div>
 </article>
 
