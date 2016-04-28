@@ -15,7 +15,7 @@ $( document ).ready(function() {
 		&& $('#login_password').val().length > 0 && !$('#login_password').hasClass('elt_form_err')){
 			$.ajax({
 			    url: 'api/user',
-			    type: 'POST',
+			    type: 'GET',
 			    data: {
 			    	email: $('#login_email').val(),
 			    	password: $.sha256($('#login_password').val()+$.sha256($('#login_email').val()))
