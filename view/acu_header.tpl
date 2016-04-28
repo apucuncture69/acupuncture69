@@ -40,7 +40,7 @@
           </li>
           <li>
             <a href="signup">
-              <p class="header_button">S'inscrire</p>
+              <p class="header_button" tabindex="50">S'inscrire</p>
             </a>
           </li>
           {/if}
