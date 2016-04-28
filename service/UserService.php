@@ -53,6 +53,8 @@ class UserService
                     {
                         $_SESSION['acu_tck_login']='OK';
                         $_SESSION['user_email']=$user->getEmail();
+			$_SESSION['user_first']=$user->getFirstName();
+			$_SESSION['user_last']=$user->getLastName();
                         $_SESSION['user_display_name']=$user->getFirstName().' '.$user->getLastName();
                     }
 		}
