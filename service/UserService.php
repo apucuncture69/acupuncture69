@@ -35,12 +35,24 @@ class UserService
 	private function post() {
 		$b = false;
                 parse_str(file_get_contents("php://input"),$post_vars);
-                if ($post_vars['password'] != '' && $post_vars['password'] == $post_vars['password_again'] && $post_vars['email'] != '' && $post_vars['firstname'] != '' && $post_vars['lastname'] != '') {
+				
+				if (isset($post_vars['nom'])) { 
+                 $nom = htmlentities($post_vars['nom'],ENT_QUOTES);}
+				if (isset($post_vars['prenom'])) { 
+                 $prenom = htmlentities($post_vars['prenom'],ENT_QUOTES);}
+				if (isset($post_vars['password_again'])) { 
+                 $password_again = htmlentities($post_vars['password_again'],ENT_QUOTES);}
+				if (isset($post_vars['password'])) { 
+                 $password = htmlentities($post_vars['password'],ENT_QUOTES);}
+				 if (isset($post_vars['email'])) { 
+                 $email = htmlentities($post_vars['email'],ENT_QUOTES);}
+				
+                if ($password != '' && $password == $password_again && $email != '' && $prenom != '' && $nom != '') {
                     $user = new User();
-                    $user->setEmail($post_vars['email']);
-                    $user->setFirstName($post_vars['firstname']);
-                    $user->setHashPwd($post_vars['password']);
-                    $user->setLastName($post_vars['lastname']);
+                        $user->setEmail($email);
+                        $user->setFirstName($prenom);
+                        $user->setHashPwd($password);
+                        $user->setLastName($nom);
                     
                     $b = self::$_UserManager->add($user);
 
@@ -60,9 +72,14 @@ class UserService
 
 	// Connexion utilisateur
 	private function get() {
-		$r = self::$_UserManager->get($_GET['email']);
+		if (isset($_GET['email'])) { 
+                 $email = htmlentities($_GET['email'],ENT_QUOTES);}
+		if (isset($_GET['password'])) { 
+                 $password = htmlentities($_GET['password'],ENT_QUOTES);}
+				 	 
+		$r = self::$_UserManager->get($email);
 		$b = false;
-		if($r->getHashPwd() == $_GET['password']){
+		if($r->getHashPwd() == $password){
 			$_SESSION['acu_tck_login']='OK';
 			$_SESSION['user_email']=$r->getEmail();
 			$_SESSION['user_first']=$r->getFirstName();
@@ -78,14 +95,23 @@ class UserService
 		$r = self::$_UserManager->get($_SESSION['user_email']);
 		$b = false;
         parse_str(file_get_contents("php://input"),$post_vars);
-		if('' == $post_vars['newpassword']){
-			$r->setFirstName($post_vars['prenom']);
-			$r->setLastName($post_vars['nom']);
+		if (isset($post_vars['nom'])) { 
+                 $nom = htmlentities($post_vars['nom'],ENT_QUOTES);}
+		if (isset($post_vars['prenom'])) { 
+                 $prenom = htmlentities($post_vars['prenom'],ENT_QUOTES);}
+		if (isset($post_vars['newpassword'])) { 
+                 $newpassword = htmlentities($post_vars['newpassword'],ENT_QUOTES);}
+		if (isset($post_vars['password'])) { 
+                 $password = htmlentities($post_vars['password'],ENT_QUOTES);}
+				 	 		 	 
+		if('' == $newpassword){
+			$r->setFirstName($prenom);
+			$r->setLastName($nom);
 			$b=true;
-		} else if('' != $post_vars['newpassword'] && $r->getHashPwd() == $post_vars['password']){
-			$r->setFirstName($post_vars['prenom']);
-			$r->setLastName($post_vars['nom']);
-			$r->setHashPwd($post_vars['newpassword']);
+		} else if('' != $newpassword && $r->getHashPwd() == $password){
+			$r->setFirstName($prenom);
+			$r->setLastName($nom);
+			$r->setHashPwd($newpassword);
 			$b=true;
 		}
 		if($b){
