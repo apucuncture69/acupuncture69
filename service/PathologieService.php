@@ -28,9 +28,12 @@ public static  function index()
             $keywords='%';
             $meridien='%';
             $type='%';
-            if (isset($_GET['keywords'])) { $keywords = $_GET['keywords'];}
-            if (isset($_GET['meridien'])) { $meridien = $_GET['meridien']; }
-            if (isset($_GET['type'])) {     $type     = $_GET['type']; }
+            if (isset($_GET['keywords'])) { 
+                 $keywords = htmlentities($_GET['keywords'],ENT_QUOTES);}
+            if (isset($_GET['meridien'])) {
+                 $meridien =htmlentities( $_GET['meridien'],ENT_QUOTES); }
+            if (isset($_GET['type'])) {
+                 $type = htmlentities($_GET['type'],ENT_QUOTES); }
             
               if($keywords!='%'){
                     $result= self::FindByKeywords($keywords,$meridien,$type);              
@@ -188,4 +191,4 @@ private static function ConvertFilterToXml($meridiens,$pathologieTypes){
 
 
 }
-?>  
+?>  	
