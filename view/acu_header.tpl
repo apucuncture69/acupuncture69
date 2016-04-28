@@ -38,6 +38,11 @@
               <p id="header_profile_username">Se connecter</p>
             </a>
           </li>
+          <li>
+            <a href="signup">
+              <p class="header_button">S'inscrire</p>
+            </a>
+          </li>
           {/if}
         </ul>
       </div>
