@@ -30,10 +30,10 @@ class UserService
 	private function post() {
 		$b = false;
 				
-				if (isset($_POST['nom'])) { 
-                 $nom = htmlentities($_POST['nom'],ENT_QUOTES);}
-				if (isset($_POST['prenom'])) { 
-                 $prenom = htmlentities($_POST['prenom'],ENT_QUOTES);}
+				if (isset($_POST['lastname'])) { 
+                 $nom = htmlentities($_POST['lastname'],ENT_QUOTES);}
+				if (isset($_POST['firstname'])) { 
+                 $prenom = htmlentities($_POST['firstname'],ENT_QUOTES);}
 				if (isset($_POST['password_again'])) { 
                  $password_again = htmlentities($_POST['password_again'],ENT_QUOTES);}
 				if (isset($_POST['password'])) { 
