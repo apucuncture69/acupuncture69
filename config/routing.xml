@@ -36,11 +36,24 @@
     <controller>Home</controller>
     <action>login</action>
   </route>
-
+  
   <route>
     <path>/login-{redirect_page}</path>
     <controller>Home</controller>
     <action>login</action>
+    <redirect_page>(\w+)</redirect_page>
+  </route>
+  
+   <route>
+    <path>/signup</path>
+    <controller>Home</controller>
+    <action>signup</action>
+  </route>
+  
+  <route>
+    <path>/signup-{redirect_page}</path>
+    <controller>Home</controller>
+    <action>signup</action>
     <redirect_page>(\w+)</redirect_page>
   </route>
 
