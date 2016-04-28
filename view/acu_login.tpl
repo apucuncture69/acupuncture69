@@ -1,4 +1,4 @@
-<article class="acu_tile">
+<article class="acu_tile" id="acu_login_tile">
     <h1 id="acu_login_title">Connexion</h1>
     <div id="login_form">
         <form aria-labelledby="acu_login_title">
@@ -19,4 +19,3 @@
         </div>
     </div>
 </article>
-
