@@ -4,8 +4,8 @@ $( document ).ready(function() {
     		var pwd = '';
     		var newpwd = '';
     		if($('#profil_newmdp').val()!=''){
-    			pwd=$.sha256($('#profil_mdp').val()+$.sha256($('#profil_email').val()));
-    			newpwd=$.sha256($('#profil_newmdp').val()+$.sha256($('#profil_email').val()));
+    			pwd=$.sha256($('#profil_mdp').val()+$.sha256($.trim($('#profil_email').html())));
+    			newpwd=$.sha256($('#profil_newmdp').val()+$.sha256($.trim($('#profil_email').html())));
     		}
 			$.ajax({
 			    url: 'api/user',
