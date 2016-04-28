@@ -27,7 +27,7 @@ $(document).ready(function () {
                     if (result == true) {
                         document.location.href = $('#signup_redirect_page').val();
                     } else {
-                        
+                        $('#signup_error').html("Utilisateur déjà enregistré. Veuillez vous <a href='login'>connecter</a>");
                     }
                 },
                 error: function (result) {
@@ -42,6 +42,8 @@ $(document).ready(function () {
             valid_password_again = valid_password_again && ($('#signup_password').val() === $('#signup_password_again').val());
         }
         
+        var error_html = '';
+        
         if (valid_firstname)
         {
             $('#signup_firstname').removeClass('elt_form_err');
@@ -49,6 +51,7 @@ $(document).ready(function () {
         else
         {
             $('#signup_firstname').addClass('elt_form_err');
+            error_html += 'Veuillez remplir le prénom<br>';
         }
 
         if (valid_lastname)
@@ -58,6 +61,7 @@ $(document).ready(function () {
         else
         {
             $('#signup_lastname').addClass('elt_form_err');
+            error_html += 'Veuillez remplir le nom<br>';
         }
 
         if (valid_email)
@@ -67,6 +71,7 @@ $(document).ready(function () {
         else
         {
             $('#signup_email').addClass('elt_form_err');
+            error_html += 'Veuillez entrer une adresse e-mail valide<br>';
         }
 
         if (valid_password)
@@ -76,6 +81,7 @@ $(document).ready(function () {
         else
         {
             $('#signup_password').addClass('elt_form_err');
+            error_html += 'Le mot de passe doit faire au moins 5 caractères<br>';
         }
 
         if (valid_password_again)
@@ -85,7 +91,10 @@ $(document).ready(function () {
         else
         {
             $('#signup_password_again').addClass('elt_form_err');
+            error_html += 'La confirmation est différente du mot de passe<br>';
         }
+        
+        $('#signup_error').html(error_html);
 
     });
 
