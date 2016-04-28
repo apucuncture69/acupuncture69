@@ -147,6 +147,41 @@ $(document).ready(function () {
         }
     });
 
+    $('#signup_firstname').keypress(function (e) {
+        var key = e.which;
+        if(key == 13) {
+            $('#signup_submit').click();
+        }
+    });
+
+    $('#signup_lastname').keypress(function (e) {
+        var key = e.which;
+        if(key == 13) {
+            $('#signup_submit').click();
+        }
+    });
+
+    $('#signup_email').keypress(function (e) {
+        var key = e.which;
+        if(key == 13) {
+            $('#signup_submit').click();
+        }
+    });
+
+    $('#signup_password').keypress(function (e) {
+        var key = e.which;
+        if(key == 13) {
+            $('#signup_submit').click();
+        }
+    });
+
+    $('#signup_password_again').keypress(function (e) {
+        var key = e.which;
+        if(key == 13) {
+            $('#signup_submit').click();
+        }
+    });
+
 });
 
 
