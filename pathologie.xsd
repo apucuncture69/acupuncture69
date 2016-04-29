@@ -1,0 +1,40 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="pathologie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="meridien">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="nom"/>
+              <xs:element type="xs:string" name="element"/>
+              <xs:element type="xs:string" name="yin"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="type"/>
+        <xs:element type="xs:string" name="description"/>
+        <xs:element name="symptomes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="symptome" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="description"/>
+                    <xs:element name="motsCles">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="motcle" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="aggr"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
